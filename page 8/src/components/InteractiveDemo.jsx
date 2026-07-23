@@ -34,21 +34,21 @@ export default function InteractiveDemo() {
       setNodes(prev => prev.map(n => n.id === 1 ? { ...n, status: 'active' } : n));
       setLogs(prev => [...prev, { timestamp: now(), type: 'info', message: '⚡ Event Triggered: New User Registered [ID: usr_9941]' }]);
       setStepIndex(2);
-    }, 800);
+    }, 100);
 
     // Step 2
     setTimeout(() => {
       setNodes(prev => prev.map(n => n.id === 1 ? { ...n, status: 'done' } : n.id === 2 ? { ...n, status: 'active' } : n));
       setLogs(prev => [...prev, { timestamp: now(), type: 'reasoning', message: '🧠 Claude 3.5 Sonnet: Classifying intent... [Confidence: 99.4%]' }]);
       setStepIndex(3);
-    }, 1800);
+    }, 700);
 
     // Step 3
     setTimeout(() => {
       setNodes(prev => prev.map(n => n.id === 2 ? { ...n, status: 'done' } : n.id === 3 ? { ...n, status: 'active' } : n));
       setLogs(prev => [...prev, { timestamp: now(), type: 'info', message: '🔍 Vector Search: Retrieved 5 relevant context documents from Pinecone' }]);
       setStepIndex(4);
-    }, 2800);
+    }, 1300);
 
     // Step 4
     setTimeout(() => {
@@ -56,7 +56,7 @@ export default function InteractiveDemo() {
       setLogs(prev => [...prev, { timestamp: now(), type: 'success', message: '✅ Webhook Delivered: Sent onboarding payload to Slack & HubSpot (200 OK)' }]);
       setIsRunning(false);
       setStepIndex(0);
-    }, 3800);
+    }, 2000);
   };
 
   const filteredLogs = logs.filter(log => {
