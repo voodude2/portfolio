@@ -60,6 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             link: "./page 3/index.html"
         },
+        reacttailwind: {
+            title: "React + Tailwind Project - Next-Gen AI SaaS Platform",
+            desc: "An enterprise-grade SaaS web application built with React 18, Vite, and Tailwind CSS. Features an interactive developer AI playground, real-time edge telemetry dashboard, tier pricing calculator, and responsive dark glassmorphism design system.",
+            features: [
+                "⚛️ React 18 + Vite 5 + Tailwind CSS Architecture",
+                "🤖 Interactive Developer AI Playground with live token generation simulation",
+                "📊 Real-time SaaS Dashboard with throughput graph & active user counters",
+                "💳 Tiered Pricing Calculator with monthly/annual discount toggle"
+            ],
+            link: "./page 3/index.html"
+        },
         travel: {
             title: "GlobeTrotter Travel & Tours Hub",
             desc: "A luxury single page travel booking web application designed for discovering tropical destinations, booking custom tour packages, and exploring resort guides with a modern glassmorphism design system.",
