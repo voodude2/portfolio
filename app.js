@@ -26,6 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 "📱 Responsive mobile-first layout with smooth CSS transitions"
             ],
             link: "./page 2/index.html"
+        },
+        saas: {
+            title: "NextGen SaaS Corporate Platform",
+            desc: "A corporate SaaS landing page template built with semantic HTML5 and clean CSS. Focuses on conversion rate optimization, pricing plan matrices, and lead generation.",
+            features: [
+                "💼 Multi-page architecture (Features, Pricing, About, Contact)",
+                "💳 Tiered pricing plans with monthly/annual toggle",
+                "📈 High-converting call-to-action sections and hero banners"
+            ],
+            link: "./page one/index.html"
         }
     };
 
