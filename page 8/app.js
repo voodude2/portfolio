@@ -168,30 +168,44 @@ function initThreeJSStudio() {
     }
 
     // Studio Lighting Setup
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
     // Key Light
-    const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.5);
     keyLight.position.set(15, 25, 15);
     keyLight.castShadow = true;
     keyLight.shadow.mapSize.width = 2048;
     keyLight.shadow.mapSize.height = 2048;
+    keyLight.shadow.bias = -0.0001;
     scene.add(keyLight);
 
     // Cyan Rim Light
-    const rimLight = new THREE.DirectionalLight(0x00f0ff, 1.5);
+    const rimLight = new THREE.DirectionalLight(0x00f0ff, 2.0);
     rimLight.position.set(-15, 10, -15);
     scene.add(rimLight);
 
     // Internal Case Point Lights
-    casePointLight1 = new THREE.PointLight(0x00f0ff, 3.5, 20);
+    casePointLight1 = new THREE.PointLight(0x00f0ff, 4.5, 20);
     casePointLight1.position.set(0, 3, 0);
     scene.add(casePointLight1);
 
-    casePointLight2 = new THREE.PointLight(0xff0055, 3.0, 20);
+    casePointLight2 = new THREE.PointLight(0xff0055, 4.0, 20);
     casePointLight2.position.set(0, -3, 2);
     scene.add(casePointLight2);
+
+    // HDRI Environment for Hyper-Realistic Metal/Glass Reflections
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    pmremGenerator.compileEquirectangularShader();
+
+    new THREE.RGBELoader()
+        .setDataType(THREE.UnsignedByteType)
+        .load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/equirectangular/royal_esplanade_1k.hdr', function (texture) {
+            const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+            scene.environment = envMap;
+            texture.dispose();
+            pmremGenerator.dispose();
+        });
 
     // Reflective Metallic Grid Floor
     const gridHelper = new THREE.GridHelper(50, 25, 0x00f0ff, 0x162238);
@@ -230,19 +244,24 @@ function buildPhotorealisticPC() {
 }
 
 function buildFallbackCase() {
-    // Materials
-    const aluminumMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.9, roughness: 0.2 });
-    const darkSteelMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.8, roughness: 0.3 });
-    const pcbMat = new THREE.MeshStandardMaterial({ color: 0x09111e, roughness: 0.6 });
-    const silverHeatsinkMat = new THREE.MeshStandardMaterial({ color: 0xc0c0c0, metalness: 0.95, roughness: 0.1 });
+    // Hyper-Realistic Materials using MeshPhysicalMaterial
+    const aluminumMat = new THREE.MeshPhysicalMaterial({ color: 0x1e293b, metalness: 1.0, roughness: 0.15, clearcoat: 0.1 });
+    const darkSteelMat = new THREE.MeshPhysicalMaterial({ color: 0x0f172a, metalness: 0.9, roughness: 0.3 });
+    const pcbMat = new THREE.MeshPhysicalMaterial({ color: 0x050a12, metalness: 0.4, roughness: 0.7, clearcoat: 0.1 });
+    const silverHeatsinkMat = new THREE.MeshPhysicalMaterial({ color: 0xd0d0d0, metalness: 1.0, roughness: 0.25, clearcoat: 0.3 });
+    
+    // Photorealistic Tempered Glass
     const glassMat = new THREE.MeshPhysicalMaterial({
         color: 0xffffff,
         transparent: true,
-        opacity: 0.2,
-        roughness: 0.05,
-        metalness: 0.1,
-        transmission: 0.9,
-        thickness: 0.5
+        opacity: 0.15,
+        roughness: 0.0,
+        metalness: 0.2,
+        transmission: 0.95,
+        ior: 1.5,
+        thickness: 0.2,
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.0
     });
 
     // 1. Frame Pillars (Aluminum Corner Beams)
@@ -349,34 +368,50 @@ function createDetailedGPUMesh() {
         realGPU.scale.set(2, 2, 2);
         gpuGroup.add(realGPU);
     }, undefined, function(error) {
-        // Fallback to Procedural GPU Mesh
-        const shroudGeo = new THREE.BoxGeometry(7.5, 1.8, 3.8);
-        const shroudMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.9, roughness: 0.2 });
+        // Hyper-Realistic Fallback Procedural GPU Mesh (RTX Style)
+        const shroudMat = new THREE.MeshPhysicalMaterial({ color: 0x111827, metalness: 0.8, roughness: 0.3, clearcoat: 0.2 });
+        const silverMat = new THREE.MeshPhysicalMaterial({ color: 0xe5e7eb, metalness: 1.0, roughness: 0.15 });
+
+        // Metallic Triple-Fan Main Shroud
+        const shroudGeo = new THREE.BoxGeometry(7.8, 1.9, 3.9);
         const shroud = new THREE.Mesh(shroudGeo, shroudMat);
+        
+        // Silver X-Frame Overlay (Founders Edition Style)
+        const xFrameGeo = new THREE.BoxGeometry(7.9, 2.0, 0.4);
+        const xFrame = new THREE.Mesh(xFrameGeo, silverMat);
+        xFrame.position.set(0, 0, 1.8);
+        gpuGroup.add(xFrame);
         gpuGroup.add(shroud);
 
         // Glowing RGB Edge Light
-        const rgbEdgeGeo = new THREE.BoxGeometry(7.6, 0.3, 0.2);
+        const rgbEdgeGeo = new THREE.BoxGeometry(7.7, 0.15, 0.2);
         const rgbEdgeMat = new THREE.MeshBasicMaterial({ color: gpuColor });
         const rgbEdge = new THREE.Mesh(rgbEdgeGeo, rgbEdgeMat);
-        rgbEdge.position.set(0, 0.8, 1.95);
+        rgbEdge.position.set(0, 0.85, 2.0);
         gpuGroup.add(rgbEdge);
 
         // Metal Backplate
-        const bpGeo = new THREE.BoxGeometry(7.5, 0.1, 3.8);
-        const bpMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.95 });
+        const bpGeo = new THREE.BoxGeometry(7.8, 0.15, 3.9);
+        const bpMat = new THREE.MeshPhysicalMaterial({ color: 0x0f172a, metalness: 1.0, roughness: 0.2 });
         const bp = new THREE.Mesh(bpGeo, bpMat);
-        bp.position.set(0, -0.9, 0);
+        bp.position.set(0, -0.95, 0);
         gpuGroup.add(bp);
 
         // 3 GPU Cooling Fan Rings
-        const fanRingGeo = new THREE.TorusGeometry(0.9, 0.08, 12, 24);
-        const fanRingMat = new THREE.MeshBasicMaterial({ color: gpuColor });
+        const fanRingGeo = new THREE.TorusGeometry(0.9, 0.08, 16, 32);
+        const fanRingMat = new THREE.MeshPhysicalMaterial({ color: 0x050505, metalness: 0.8, roughness: 0.5 });
+        const fanCenterMat = new THREE.MeshPhysicalMaterial({ color: 0xd0d0d0, metalness: 1.0, roughness: 0.1 });
+        
         for (let f = 0; f < 3; f++) {
             const ring = new THREE.Mesh(fanRingGeo, fanRingMat);
             ring.rotation.x = Math.PI / 2;
-            ring.position.set(-2.2 + (f * 2.2), 0, 1.92);
+            ring.position.set(-2.4 + (f * 2.4), 0, 1.95);
             gpuGroup.add(ring);
+            
+            const center = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.1, 16), fanCenterMat);
+            center.rotation.x = Math.PI / 2;
+            center.position.set(-2.4 + (f * 2.4), 0, 1.96);
+            gpuGroup.add(center);
         }
     });
 }
@@ -424,18 +459,38 @@ function createDetailedCoolerMesh() {
         const realCooler = gltf.scene;
         coolerGroup.add(realCooler);
     }, undefined, function(error) {
-        // Fallback Cooler
-        const pumpGeo = new THREE.CylinderGeometry(1.3, 1.3, 1.1, 32);
-        const pumpMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.9 });
+        // Hyper-Realistic Fallback Cooler (AIO Pump)
+        const pumpGeo = new THREE.CylinderGeometry(1.4, 1.4, 1.2, 64);
+        const pumpMat = new THREE.MeshPhysicalMaterial({ color: 0x020617, metalness: 0.8, roughness: 0.4, clearcoat: 0.1 });
         const pump = new THREE.Mesh(pumpGeo, pumpMat);
         pump.rotation.x = Math.PI / 2;
 
-        const mirrorGeo = new THREE.CircleGeometry(1.1, 32);
-        const mirrorMat = new THREE.MeshBasicMaterial({ color: 0x00f0ff });
+        const mirrorGeo = new THREE.CircleGeometry(1.25, 64);
+        
+        // Realistic LCD Screen / Infinity Mirror emulation
+        const mirrorMat = new THREE.MeshPhysicalMaterial({ 
+            color: 0x000000, 
+            emissive: 0x00f0ff,
+            emissiveIntensity: 0.8,
+            metalness: 1.0,
+            roughness: 0.0,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.0
+        });
         const mirror = new THREE.Mesh(mirrorGeo, mirrorMat);
-        mirror.position.set(0, 0.56, 0);
+        mirror.position.set(0, 0.61, 0);
         mirror.rotation.x = -Math.PI / 2;
         pump.add(mirror);
+
+        // AIO Liquid Tubes (Bezier curves)
+        const tubeMat = new THREE.MeshPhysicalMaterial({ color: 0x111, roughness: 0.8, clearcoat: 0.1 });
+        class TubeCurve extends THREE.Curve {
+            getPoint(t) { return new THREE.Vector3(Math.sin(t*Math.PI)*2, t*4, Math.cos(t*Math.PI)*2); }
+        }
+        const tubeGeo = new THREE.TubeGeometry(new TubeCurve(), 20, 0.15, 8, false);
+        const tube1 = new THREE.Mesh(tubeGeo, tubeMat);
+        tube1.position.set(1.4, 0, 0);
+        pump.add(tube1);
 
         coolerGroup.add(pump);
     });
