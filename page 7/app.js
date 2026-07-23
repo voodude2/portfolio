@@ -23,7 +23,7 @@ const SNAKES_DATABASE = [
             "🛡️ Triangular head distinct from thin neck, vertical slit pupils",
             "🏥 Requires Levantine Viper antivenom (available in Georgian emergency centers)"
         ],
-        image: "assets/images/gyurza.jpg"
+        image: "https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "vipera-kaznakovi",
@@ -45,7 +45,7 @@ const SNAKES_DATABASE = [
             "⚠️ Venom is strongly hemotoxic; medical assistance required if bitten",
             "🛡️ Highly endangered due to habitat fragmentation"
         ],
-        image: "assets/images/kaznakovi.jpg"
+        image: "https://images.unsplash.com/photo-1574063413132-355dbfd83e0c?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "vipera-dinniki",
@@ -67,7 +67,7 @@ const SNAKES_DATABASE = [
             "⚠️ Venom contains cytotoxic and neurotoxic components",
             "🔍 Short, heavy-bodied viper with upturned snout"
         ],
-        image: "assets/images/dinniki.jpg"
+        image: "https://images.unsplash.com/photo-1548681528-6a5c45b66b42?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "vipera-renardi",
@@ -89,7 +89,7 @@ const SNAKES_DATABASE = [
             "⚠️ Venomous bite causes localized pain and swelling",
             "🔍 Narrow head with wavy dark dorsal pattern"
         ],
-        image: "assets/images/renardi.jpg"
+        image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "vipera-eriwanensis",
@@ -111,7 +111,7 @@ const SNAKES_DATABASE = [
             "⚠️ Mild to moderate envenomation risk to humans",
             "🛡️ Protected species due to overgrazing of mountain habitats"
         ],
-        image: "assets/images/eriwanensis.jpg"
+        image: "https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "malpolon-insignitus",
@@ -133,7 +133,7 @@ const SNAKES_DATABASE = [
             "🧪 Rear-fanged grooved teeth in back of jaw; harmless to humans",
             "🐍 Often raises front body like a cobra when cornered"
         ],
-        image: "assets/images/montpellier.jpg"
+        image: "https://images.unsplash.com/photo-1551717709-6bc256e29ff2?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "telescopus-fallax",
@@ -155,7 +155,7 @@ const SNAKES_DATABASE = [
             "🧪 Rear-fanged venom incapacitates small lizards quickly",
             "🏢 Frequently encountered around rocky heritage ruins in Tbilisi"
         ],
-        image: "assets/images/cat_snake.jpg"
+        image: "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "natrix-natrix",
@@ -177,7 +177,7 @@ const SNAKES_DATABASE = [
             "🛡️ Completely harmless to humans; feigns death (thanatosis) if captured",
             "🐸 Feeds almost exclusively on amphibians"
         ],
-        image: "assets/images/grass_snake.jpg"
+        image: "https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "natrix-tessellata",
@@ -199,7 +199,7 @@ const SNAKES_DATABASE = [
             "🛡️ Completely non-venomous and gentle",
             "🌊 Abundant along the Mtkvari river and Black Sea coast"
         ],
-        image: "assets/images/dice_snake.jpg"
+        image: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "zamenis-longissimus",
@@ -221,7 +221,7 @@ const SNAKES_DATABASE = [
             "🛡️ Non-venomous constrictor, very calm temperament",
             "✨ Uniform olive-brown coloration with fine white spots on scales"
         ],
-        image: "assets/images/aesculapian.jpg"
+        image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "dolichophis-caspius",
@@ -243,7 +243,7 @@ const SNAKES_DATABASE = [
             "🛡️ Non-venomous despite aggressive threat displays",
             "🌾 Crucial predator controlling agricultural rodent pests"
         ],
-        image: "assets/images/caspian.jpg"
+        image: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "elaphe-sauromates",
@@ -265,7 +265,7 @@ const SNAKES_DATABASE = [
             "🛡️ Non-venomous constrictor, beneficial for farmers",
             "🌿 Inhabits Kakheti wine regions and Alazani valley"
         ],
-        image: "assets/images/blotched.jpg"
+        image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "eryx-jaculus",
@@ -287,7 +287,7 @@ const SNAKES_DATABASE = [
             "🛡️ Non-venomous constrictor, completely harmless",
             " Protected rare species in Kakheti semi-deserts"
         ],
-        image: "assets/images/sand_boa.jpg"
+        image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: "typhlops-vermicularis",
@@ -309,7 +309,7 @@ const SNAKES_DATABASE = [
             "🛡️ 100% harmless, lacks functional teeth for biting humans",
             "🪨 Found beneath flat stones on warm dry hillsides"
         ],
-        image: "assets/images/blind_snake.jpg"
+        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
     }
 ];
 
