@@ -234,19 +234,8 @@ function buildPhotorealisticPC() {
     pcCaseGroup = new THREE.Group();
     scene.add(pcCaseGroup);
 
-    const loader = new THREE.GLTFLoader();
-
-    // Load REAL Case Model or Fallback
-    // Attempt to load external models directly from Github to avoid sandbox prompts
-    loader.load('https://raw.githubusercontent.com/TuranAshish/ashish-turan-cs-educator/main/assets/desktop.glb', function(gltf) {
-        const realCase = gltf.scene;
-        realCase.scale.set(5, 5, 5); // Adjust scale based on model
-        realCase.position.set(0, -6, 0);
-        pcCaseGroup.add(realCase);
-    }, undefined, function(error) {
-        console.warn("Real case.glb not found. Using procedural fallback.");
-        buildFallbackCase();
-    });
+    // Load Procedural Case (Textured) directly
+    buildFallbackCase();
 
     // 4. Rotating RGB Fans
     createPhotorealisticFans();
@@ -257,8 +246,8 @@ function buildPhotorealisticPC() {
 
 function buildFallbackCase() {
     // Hyper-Realistic Materials using MeshPhysicalMaterial
-    const aluminumMat = new THREE.MeshPhysicalMaterial({ color: 0x1e293b, metalness: 1.0, roughness: 0.15, clearcoat: 0.1 });
-    const darkSteelMat = new THREE.MeshPhysicalMaterial({ color: 0x0f172a, metalness: 0.9, roughness: 0.3 });
+    const aluminumMat = new THREE.MeshPhysicalMaterial({ map: gpuTexture, color: 0x1e293b, metalness: 1.0, roughness: 0.25, clearcoat: 0.1 });
+    const darkSteelMat = new THREE.MeshPhysicalMaterial({ map: moboTexture, color: 0x0f172a, metalness: 0.9, roughness: 0.3 });
     const pcbMat = new THREE.MeshPhysicalMaterial({ map: moboTexture, color: 0xcccccc, metalness: 0.3, roughness: 0.7, clearcoat: 0.1 });
     const silverHeatsinkMat = new THREE.MeshPhysicalMaterial({ color: 0xd0d0d0, metalness: 1.0, roughness: 0.25, clearcoat: 0.3 });
     
@@ -373,60 +362,54 @@ function createDetailedGPUMesh() {
     gpuGroup.position.set(0, -1, -2.5);
     pcCaseGroup.add(gpuGroup);
 
-    const loader = new THREE.GLTFLoader();
     const gpuColor = activeBuild.gpu.color || 0x00f0ff;
 
-    loader.load('https://raw.githubusercontent.com/TuranAshish/ashish-turan-cs-educator/main/assets/gpu.glb', function(gltf) {
-        const realGPU = gltf.scene;
-        realGPU.scale.set(2, 2, 2);
-        gpuGroup.add(realGPU);
-    }, undefined, function(error) {
-        // Hyper-Realistic Fallback Procedural GPU Mesh (RTX Style)
-        const silverMat = new THREE.MeshPhysicalMaterial({ color: 0xe5e7eb, metalness: 1.0, roughness: 0.15 });
+    // Hyper-Realistic Procedural GPU Mesh (RTX Style)
+    const silverMat = new THREE.MeshPhysicalMaterial({ color: 0xe5e7eb, metalness: 1.0, roughness: 0.15 });
 
-        // Silver X-Frame Overlay (Founders Edition Style)
-        const xFrameGeo = new THREE.BoxGeometry(7.9, 2.0, 0.4);
-        const xFrame = new THREE.Mesh(xFrameGeo, silverMat);
-        xFrame.position.set(0, 0, 1.8);
-        gpuGroup.add(xFrame);
+    // Silver X-Frame Overlay (Founders Edition Style)
+    const xFrameGeo = new THREE.BoxGeometry(7.9, 2.0, 0.4);
+    const xFrame = new THREE.Mesh(xFrameGeo, silverMat);
+    xFrame.position.set(0, 0, 1.8);
+    gpuGroup.add(xFrame);
 
-        // Glowing RGB Edge Light
-        const rgbEdgeGeo = new THREE.BoxGeometry(7.7, 0.15, 0.2);
-        const rgbEdgeMat = new THREE.MeshBasicMaterial({ color: gpuColor });
-        const rgbEdge = new THREE.Mesh(rgbEdgeGeo, rgbEdgeMat);
-        rgbEdge.position.set(0, 0.85, 2.0);
-        gpuGroup.add(rgbEdge);
+    // Glowing RGB Edge Light
+    const rgbEdgeGeo = new THREE.BoxGeometry(7.7, 0.15, 0.2);
+    const rgbEdgeMat = new THREE.MeshBasicMaterial({ color: gpuColor });
+    const rgbEdge = new THREE.Mesh(rgbEdgeGeo, rgbEdgeMat);
+    rgbEdge.position.set(0, 0.85, 2.0);
+    gpuGroup.add(rgbEdge);
 
-        // Base Circuit Board / Shroud
-        const shroudGeo = new THREE.BoxGeometry(8, 2.5, 0.8);
-        const shroudMat = new THREE.MeshPhysicalMaterial({ map: gpuTexture, color: 0xcccccc, metalness: 0.7, roughness: 0.3, clearcoat: 0.2 });
-        const shroud = new THREE.Mesh(shroudGeo, shroudMat);
-        gpuGroup.add(shroud);
+    // Base Circuit Board / Shroud
+    const shroudGeo = new THREE.BoxGeometry(8, 2.5, 0.8);
+    const shroudMat = new THREE.MeshPhysicalMaterial({ map: gpuTexture, color: 0xcccccc, metalness: 0.7, roughness: 0.3, clearcoat: 0.2 });
+    const shroud = new THREE.Mesh(shroudGeo, shroudMat);
+    gpuGroup.add(shroud);
 
-        // Metal Backplate
-        const bpGeo = new THREE.BoxGeometry(7.8, 0.15, 3.9);
-        const bpMat = new THREE.MeshPhysicalMaterial({ color: 0x0f172a, metalness: 1.0, roughness: 0.2 });
-        const bp = new THREE.Mesh(bpGeo, bpMat);
-        bp.position.set(0, -0.95, 0);
-        gpuGroup.add(bp);
+    // Metal Backplate
+    const bpGeo = new THREE.BoxGeometry(7.8, 0.15, 3.9);
+    const bpMat = new THREE.MeshPhysicalMaterial({ map: gpuTexture, color: 0x0f172a, metalness: 1.0, roughness: 0.2 });
+    const bp = new THREE.Mesh(bpGeo, bpMat);
+    bp.position.set(0, -0.95, 0);
+    gpuGroup.add(bp);
 
-        // 3 GPU Cooling Fan Rings
-        const fanRingGeo = new THREE.TorusGeometry(0.9, 0.08, 16, 32);
-        const fanRingMat = new THREE.MeshPhysicalMaterial({ color: 0x050505, metalness: 0.8, roughness: 0.5 });
-        const fanCenterMat = new THREE.MeshPhysicalMaterial({ color: 0xd0d0d0, metalness: 1.0, roughness: 0.1 });
+    // 3 GPU Cooling Fan Rings
+    const fanRingGeo = new THREE.TorusGeometry(0.9, 0.08, 16, 32);
+    const fanRingMat = new THREE.MeshPhysicalMaterial({ color: 0x050505, metalness: 0.8, roughness: 0.5 });
+    const fanCenterMat = new THREE.MeshPhysicalMaterial({ color: 0xd0d0d0, metalness: 1.0, roughness: 0.1 });
+    
+    for (let f = 0; f < 3; f++) {
+        const ring = new THREE.Mesh(fanRingGeo, fanRingMat);
+        ring.rotation.x = Math.PI / 2;
+        ring.position.set(-2.4 + (f * 2.4), 0, 1.95);
+        gpuGroup.add(ring);
         
-        for (let f = 0; f < 3; f++) {
-            const ring = new THREE.Mesh(fanRingGeo, fanRingMat);
-            ring.rotation.x = Math.PI / 2;
-            ring.position.set(-2.4 + (f * 2.4), 0, 1.95);
-            gpuGroup.add(ring);
-            
-            const center = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.1, 16), fanCenterMat);
-            center.rotation.x = Math.PI / 2;
-            center.position.set(-2.4 + (f * 2.4), 0, 1.96);
-            gpuGroup.add(center);
-        }
-    });
+        const center = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.1, 16), fanCenterMat);
+        center.rotation.x = Math.PI / 2;
+        center.position.set(-2.4 + (f * 2.4), 0, 1.96);
+        gpuGroup.add(center);
+    }
+
 }
 
 function createDetailedRAMMesh() {
@@ -434,31 +417,24 @@ function createDetailedRAMMesh() {
     ramGroup = new THREE.Group();
     pcCaseGroup.add(ramGroup);
 
-    const loader = new THREE.GLTFLoader();
     const ramColor = activeBuild.ram.color || 0x00f0ff;
 
-    loader.load('https://raw.githubusercontent.com/TuranAshish/ashish-turan-cs-educator/main/assets/ram.glb', function(gltf) {
-        const realRAM = gltf.scene;
-        realRAM.position.set(1.8, 2.8, -4.6);
-        ramGroup.add(realRAM);
-    }, undefined, function(error) {
-        // Fallback RAM
-        const stickGeo = new THREE.BoxGeometry(0.2, 2.8, 0.8);
-        const stickMat = new THREE.MeshPhysicalMaterial({ map: ramTexture, color: 0xaaaaaa, metalness: 0.5, roughness: 0.4 });
-        const rgbBarGeo = new THREE.BoxGeometry(0.25, 0.35, 0.85);
-        const rgbBarMat = new THREE.MeshBasicMaterial({ color: ramColor });
+    // Procedural Textured RAM
+    const stickGeo = new THREE.BoxGeometry(0.2, 2.8, 0.8);
+    const stickMat = new THREE.MeshPhysicalMaterial({ map: ramTexture, color: 0xaaaaaa, metalness: 0.5, roughness: 0.4 });
+    const rgbBarGeo = new THREE.BoxGeometry(0.25, 0.35, 0.85);
+    const rgbBarMat = new THREE.MeshBasicMaterial({ color: ramColor });
 
-        for (let i = 0; i < 2; i++) {
-            const ramStick = new THREE.Group();
-            const body = new THREE.Mesh(stickGeo, stickMat);
-            const bar = new THREE.Mesh(rgbBarGeo, rgbBarMat);
-            bar.position.y = 1.3;
-            ramStick.add(body);
-            ramStick.add(bar);
-            ramStick.position.set(1.8 + (i * 0.6), 2.8, -4.6);
-            ramGroup.add(ramStick);
-        }
-    });
+    for (let i = 0; i < 2; i++) {
+        const ramStick = new THREE.Group();
+        const body = new THREE.Mesh(stickGeo, stickMat);
+        const bar = new THREE.Mesh(rgbBarGeo, rgbBarMat);
+        bar.position.y = 1.3;
+        ramStick.add(body);
+        ramStick.add(bar);
+        ramStick.position.set(1.8 + (i * 0.6), 2.8, -4.6);
+        ramGroup.add(ramStick);
+    }
 }
 
 function createDetailedCoolerMesh() {
