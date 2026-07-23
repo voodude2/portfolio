@@ -5,6 +5,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
+        'react-tailwind': {
+            title: "React + Tailwind Project (AetherFlow AI SaaS Platform)",
+            desc: "A state-of-the-art WebGL & React 19 Enterprise AI SaaS Automation Platform styled with Tailwind CSS v4. Features interactive multi-agent node pipeline simulator, millisecond latency tracing, dynamic ROI cost calculator engine, and responsive glassmorphic dark design system.",
+            features: [
+                "⚛️ Built with React 19, Tailwind CSS v4, Vite 8, and Lucide Icons",
+                "🧠 Interactive Visual AI Node Pipeline Simulator (Ingestion -> LLM Reasoning -> Vector Search -> Webhook)",
+                "📊 Telemetry Monitor with real-time latency graphs, token throughput, and circuit breaker metrics",
+                "💰 Dynamic ROI & Annual Cost Savings Calculator Engine with interactive sliders",
+                "⚡ Responsive Glassmorphic Dark UI Design with custom animations and interactive pricing tiers"
+            ],
+            link: "./page 8/index.html"
+        },
         gaming: {
             title: "CyberPulse Arena - Next-Gen Esports & PC Gaming Lounge",
             desc: "A futuristic cyberpunk multi-page web application for a premier 24/7 gaming lounge. Features 4 distinct PC Hardware Tiers (Basic, Premium, Pro Arena, Ultra VIP Pods), a live station booking calculator with date & hour selection, and an interactive location map.",

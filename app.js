@@ -5,6 +5,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
+        'react-tailwind': {
+            title: "React + Tailwind Project (AetherFlow AI SaaS Platform)",
+            desc: "A state-of-the-art WebGL & React 19 Enterprise AI SaaS Automation Platform styled with Tailwind CSS v4. Features interactive multi-agent node pipeline simulator, millisecond latency tracing, dynamic ROI cost calculator engine, and responsive glassmorphic dark design system.",
+            features: [
+                "⚛️ Built with React 19, Tailwind CSS v4, Vite 8, and Lucide Icons",
+                "🧠 Interactive Visual AI Node Pipeline Simulator (Ingestion -> LLM Reasoning -> Vector Search -> Webhook)",
+                "📊 Telemetry Monitor with real-time latency graphs, token throughput, and circuit breaker metrics",
+                "💰 Dynamic ROI & Annual Cost Savings Calculator Engine with interactive sliders",
+                "⚡ Responsive Glassmorphic Dark UI Design with custom animations and interactive pricing tiers"
+            ],
+            link: "./page 8/index.html"
+        },
         herpetology: {
             title: "Snakes of Georgia - Caucasian Herpetology Guide & Species Catalog",
             desc: "A comprehensive English multi-page web application featuring all 20+ native snake species of Georgia. Includes toxicity filtering (Vipers vs. Harmless), detailed scientific profiles, snake identification guides, and emergency first-aid protocols.",
@@ -57,17 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 "📊 100% Native SVG vector chart with 15M/1H/1D/1W timeframes & Candles mode",
                 "🔄 Interactive DEX Swap with SOL to MCH exchange calculation",
                 "🔒 Staking Vault yield calculator with real-time APY estimates"
-            ],
-            link: "./page 3/index.html"
-        },
-        reacttailwind: {
-            title: "React + Tailwind Project - Next-Gen AI SaaS Platform",
-            desc: "An enterprise-grade SaaS web application built with React 18, Vite, and Tailwind CSS. Features an interactive developer AI playground, real-time edge telemetry dashboard, tier pricing calculator, and responsive dark glassmorphism design system.",
-            features: [
-                "⚛️ React 18 + Vite 5 + Tailwind CSS Architecture",
-                "🤖 Interactive Developer AI Playground with live token generation simulation",
-                "📊 Real-time SaaS Dashboard with throughput graph & active user counters",
-                "💳 Tiered Pricing Calculator with monthly/annual discount toggle"
             ],
             link: "./page 3/index.html"
         },
