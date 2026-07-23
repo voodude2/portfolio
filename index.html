@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio & Projects Gallery | Web3 & Travel</title>
+    <meta name="description" content="Personal Developer & Designer Portfolio. Showcasing Web3 Crypto Apps and Travel Booking Platforms.">
+    
+    <!-- Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Header Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo">
+                <div class="brand-badge">P</div>
+                <div>
+                    <div class="brand-name">PORTFOLIO<span class="gradient-text">.HUB</span></div>
+                    <div class="brand-title-sub">Full-Stack & Web3 Developer</div>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#stack">Tech Stack</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>AVAILABLE FOR HIRE</span>
+                </div>
+                <a href="#contact" class="btn-primary">
+                    <i class="fa-solid fa-paper-plane"></i> Contact Me
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Wrapper -->
+    <main class="main-wrapper">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge-tag">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Frontend & Web3 Specialist • Solana • ES6+</span>
+                </div>
+                <h1 class="hero-title">
+                    Building the Next <br>
+                    Generation of <span class="gradient-text">Web Experiences</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Welcome to my personal showcase hub. I design and build ultra-fast, high-yield crypto platforms and luxury travel booking engines.
+                </p>
+
+                <div class="hero-cta-row">
+                    <a href="#projects" class="btn-primary">
+                        <i class="fa-solid fa-layer-group"></i> Explore Projects
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <i class="fa-solid fa-user-plus"></i> Hire Developer
+                    </a>
+                </div>
+
+                <div class="hero-stats-row">
+                    <div>
+                        <div class="stat-num green-text">2+</div>
+                        <div class="stat-label">Live Web Projects</div>
+                    </div>
+                    <div>
+                        <div class="stat-num gradient-text">100%</div>
+                        <div class="stat-label">Offline & Fast Code</div>
+                    </div>
+                    <div>
+                        <div class="stat-num gold-text">65K</div>
+                        <div class="stat-label">Solana TPS Speed</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-avatar-box">
+                <div class="avatar-card">
+                    <img src="./portfolio/assets/images/avatar.jpg" alt="Developer Avatar">
+                </div>
+                <div class="floating-tech-badge">
+                    <i class="fa-solid fa-bolt" style="color: var(--color-green); font-size: 1.4rem;"></i>
+                    <div>
+                        <div style="font-weight: 700; font-size: 0.9rem;">Modern Web Design</div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary);">Clean Code • Responsive UI</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="stack" class="tech-stack-section">
+            <div class="tech-grid">
+                <div class="tech-pill"><i class="fa-brands fa-html5" style="color: #E34F26;"></i> HTML5 Semantic</div>
+                <div class="tech-pill"><i class="fa-brands fa-css3-alt" style="color: #1572B6;"></i> Modern CSS & Glassmorphism</div>
+                <div class="tech-pill"><i class="fa-brands fa-js" style="color: #F7DF1E;"></i> JavaScript ES6+</div>
+                <div class="tech-pill"><i class="fa-solid fa-coins" style="color: var(--color-purple);"></i> Solana Web3 & DEX</div>
+                <div class="tech-pill"><i class="fa-solid fa-chart-line" style="color: var(--color-green);"></i> Vector Chart Engine</div>
+                <div class="tech-pill"><i class="fa-solid fa-mobile-screen" style="color: var(--color-cyan);"></i> Responsive Mobile First</div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-header">
+                <span class="section-tag">MY WORK & PORTFOLIO</span>
+                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                <p class="section-subtitle">Browse through interactive web applications built with modern frontend tools</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All Projects (2)</button>
+                <button class="filter-btn" data-filter="web3">Crypto & Web3</button>
+                <button class="filter-btn" data-filter="travel">Travel & Booking</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+
+                <!-- Project 1: Mucho Coin -->
+                <div class="project-card" data-category="web3">
+                    <div class="card-banner">
+                        <img src="./portfolio/assets/images/web3.jpg" alt="Mucho Coin Solana DEX">
+                        <span class="category-tag"><i class="fa-solid fa-coins"></i> Crypto & Web3</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title gold-text">Mucho Coin ($MCH)</h3>
+                        <p class="card-desc">
+                            High-yield Solana cryptocurrency landing page featuring DEX Swap terminal, APY Staking calculator, AirDrop checker, and offline vector trading chart.
+                        </p>
+                        <div class="card-tags">
+                            <span class="mini-tag">Solana</span>
+                            <span class="mini-tag">DEX Swap</span>
+                            <span class="mini-tag">SVG Chart</span>
+                            <span class="mini-tag">Staking Vault</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="./page 3/index.html" target="_blank" class="btn-card-launch">
+                                Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                            <button class="btn-card-details" data-modal="web3">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: GlobeTrotter Travel -->
+                <div class="project-card" data-category="travel">
+                    <div class="card-banner">
+                        <img src="./portfolio/assets/images/travel.jpg" alt="GlobeTrotter Travel Hub">
+                        <span class="category-tag"><i class="fa-solid fa-plane"></i> Travel & Booking</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title green-text">GlobeTrotter Travel & Tours</h3>
+                        <p class="card-desc">
+                            Luxury travel booking platform with interactive destination search, tour packages, booking wizard, and customer reviews.
+                        </p>
+                        <div class="card-tags">
+                            <span class="mini-tag">SPA JS</span>
+                            <span class="mini-tag">Tour Booking</span>
+                            <span class="mini-tag">Filtering</span>
+                            <span class="mini-tag">UI/UX</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="./page 2/index.html" target="_blank" class="btn-card-launch">
+                                Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                            <button class="btn-card-details" data-modal="travel">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-card">
+                <div>
+                    <span class="section-tag">GET IN TOUCH</span>
+                    <h2 class="section-title">Let's Build Something <span class="gradient-text">Awesome</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                        Have a web project in mind? Looking for a skilled frontend/Web3 developer? Drop me a message!
+                    </p>
+                    <div style="display: flex; gap: 16px; margin-top: 20px;">
+                        <a href="https://github.com" target="_blank" class="btn-secondary" style="padding: 8px 16px;"><i class="fa-brands fa-github"></i> GitHub</a>
+                        <a href="https://t.me" target="_blank" class="btn-secondary" style="padding: 8px 16px;"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <input type="text" class="form-input" id="contactName" placeholder="Your Name" required>
+                    <input type="email" class="form-input" id="contactEmail" placeholder="Your Email" required>
+                    <textarea class="form-textarea" id="contactMsg" placeholder="Your Message..." required></textarea>
+                    <button type="submit" class="btn-primary" style="justify-content: center;">
+                        <i class="fa-solid fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1320px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>© 2026 Developer Portfolio. All rights reserved.</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="#projects" style="color: var(--text-muted); text-decoration: none;">Projects</a>
+                <a href="#stack" style="color: var(--text-muted); text-decoration: none;">Stack</a>
+                <a href="#contact" style="color: var(--text-muted); text-decoration: none;">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal Overlay -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="gradient-text" id="modalTitle" style="font-size: 1.8rem; margin-bottom: 12px;">Project Details</h3>
+            <p id="modalDesc" style="color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6;"></p>
+            <div id="modalFeatures" style="margin-bottom: 24px;"></div>
+            <a id="modalLaunchBtn" href="#" target="_blank" class="btn-primary">
+                <i class="fa-solid fa-rocket"></i> Open Live Project
+            </a>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- JavaScript App -->
+    <script src="app.js"></script>
+</body>
+</html>
