@@ -5,6 +5,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
+        pet: {
+            title: "Pawfect Haven - Luxury Pet Shop & Care Hub",
+            desc: "A vibrant, warm pet store and spa booking web application. Features an organic product catalog, interactive shopping cart drawer, grooming spa appointment cost calculator, and pet adoption matching tools.",
+            features: [
+                "🐾 Slide-over Shopping Cart Drawer with real-time subtotal & checkout",
+                "🛁 Grooming Spa Calculator (Instant price & duration estimate based on pet & package)",
+                "🦴 Product Catalog with category filtering (Dogs, Cats, Grooming, Vet)",
+                "✨ Cheerful pastel design system with high-res pet imagery"
+            ],
+            link: "./page 4/index.html"
+        },
         web3: {
             title: "Mucho Coin ($MCH) - Solana Crypto Platform",
             desc: "A futuristic Solana-powered cryptocurrency platform built with 100% offline Javascript architecture. Includes a DEX Swap simulator, APY Staking calculator, AirDrop verification module, and native SVG Trading View chart engine.",

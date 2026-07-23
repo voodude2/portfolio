@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawfect Haven - Luxury Pet Shop & Care Hub</title>
+    <meta name="description" content="Pawfect Haven is a premium pet store offering organic pet food, toys, accessories, and professional grooming spa services.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="brand-logo">
+                <div class="brand-icon-box">
+                    <i class="fa-solid fa-paw"></i>
+                </div>
+                <div>
+                    <div class="brand-title">Pawfect <span class="coral-text">Haven</span></div>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#catalog">Shop Catalog</a></li>
+                    <li><a href="#grooming">Grooming Spa</a></li>
+                    <li><a href="#about">Why Us</a></li>
+                    <li><a href="../index.html" style="color: var(--primary-coral);"><i class="fa-solid fa-arrow-left"></i> Portfolio</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="cart-trigger-btn" id="openCartBtn" title="Shopping Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cartBadgeCount">0</span>
+                </button>
+                <a href="#grooming" class="btn-coral">
+                    <i class="fa-solid fa-calendar-check"></i> Book Spa
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <i class="fa-solid fa-heart" style="color: var(--primary-coral);"></i>
+                    <span>100% Organic • Doctor Vet Approved</span>
+                </div>
+                <h1 class="hero-title">
+                    Give Your Pet the <br>
+                    <span class="coral-text">Love & Care</span> They Deserve
+                </h1>
+                <p class="hero-subtitle">
+                    Explore our hand-picked organic pet food, eco-friendly toys, luxury beds, and book professional spa grooming sessions for your furry best friends.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#catalog" class="btn-coral">
+                        <i class="fa-solid fa-shop"></i> Shop Products
+                    </a>
+                    <a href="#grooming" class="btn-amber">
+                        <i class="fa-solid fa-soap"></i> Grooming Calculator
+                    </a>
+                </div>
+
+                <div class="trust-badges-row">
+                    <div class="trust-badge-item">
+                        <i class="fa-solid fa-truck-fast" style="color: var(--accent-mint); font-size: 1.2rem;"></i>
+                        <span>Free Same-Day Delivery</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <i class="fa-solid fa-shield-cat" style="color: var(--primary-coral); font-size: 1.2rem;"></i>
+                        <span>100% Non-Toxic</span>
+                    </div>
+                    <div class="trust-badge-item">
+                        <i class="fa-solid fa-user-doctor" style="color: var(--accent-blue); font-size: 1.2rem;"></i>
+                        <span>24/7 Vet Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-img-card">
+                    <img src="./assets/images/hero.jpg" alt="Happy Golden Retriever Puppy and Kitten">
+                </div>
+                <div class="floating-badge-1">
+                    <i class="fa-solid fa-award" style="color: var(--accent-amber); font-size: 1.6rem;"></i>
+                    <div>
+                        <div style="font-weight: 800; font-size: 0.9rem;">#1 Rated Pet Hub</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Over 15,000 Happy Paws</div>
+                    </div>
+                </div>
+                <div class="floating-badge-2">
+                    <i class="fa-solid fa-shield-heart" style="color: var(--primary-coral); font-size: 1.6rem;"></i>
+                    <div>
+                        <div style="font-weight: 800; font-size: 0.9rem;">Natural Ingredients</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Grain-Free & Organic</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <div class="category-cards-grid">
+                <a href="#catalog" class="cat-card">
+                    <div class="cat-icon" style="background: rgba(255, 107, 107, 0.12); color: var(--primary-coral);">
+                        <i class="fa-solid fa-dog"></i>
+                    </div>
+                    <div class="cat-title">Dog Supplies</div>
+                </a>
+                <a href="#catalog" class="cat-card">
+                    <div class="cat-icon" style="background: rgba(78, 168, 222, 0.12); color: var(--accent-blue);">
+                        <i class="fa-solid fa-cat"></i>
+                    </div>
+                    <div class="cat-title">Cat Essentials</div>
+                </a>
+                <a href="#grooming" class="cat-card">
+                    <div class="cat-icon" style="background: rgba(6, 214, 160, 0.12); color: var(--accent-mint);">
+                        <i class="fa-solid fa-shower"></i>
+                    </div>
+                    <div class="cat-title">Grooming Spa</div>
+                </a>
+                <a href="#catalog" class="cat-card">
+                    <div class="cat-icon" style="background: rgba(255, 209, 102, 0.2); color: #D97706;">
+                        <i class="fa-solid fa-crow"></i>
+                    </div>
+                    <div class="cat-title">Birds & Small Pets</div>
+                </a>
+                <a href="#catalog" class="cat-card">
+                    <div class="cat-icon" style="background: rgba(131, 56, 236, 0.12); color: var(--accent-purple);">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <div class="cat-title">Vet & Health</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Product Catalog Section -->
+        <section id="catalog" class="catalog-section">
+            <div class="section-header">
+                <span class="hero-tag"><i class="fa-solid fa-basket-shopping"></i> FRESH ARRIVALS</span>
+                <h2 class="section-title">Popular <span class="coral-text">Pet Products</span></h2>
+                <p style="color: var(--text-muted);">High-quality organic treats, toys, and grooming packs for your pets</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All Items</button>
+                <button class="filter-btn" data-filter="dog">Dog Food & Toys</button>
+                <button class="filter-btn" data-filter="cat">Cat Favorites</button>
+                <button class="filter-btn" data-filter="grooming">Grooming Packs</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+
+                <!-- Product 1 -->
+                <div class="product-card" data-category="dog">
+                    <img src="./assets/images/food.jpg" alt="Organic Harvest Salmon Kibble" class="product-thumb">
+                    <div class="product-body">
+                        <span class="product-cat-tag">Dog Food</span>
+                        <h3 class="product-name">Organic Salmon Kibble</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.9)
+                        </div>
+                        <div class="product-bottom">
+                            <span class="product-price">$38.99</span>
+                            <button class="btn-add-cart" data-id="p1" data-name="Organic Salmon Kibble" data-price="38.99" data-img="./assets/images/food.jpg">
+                                <i class="fa-solid fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-category="grooming">
+                    <img src="./assets/images/grooming.jpg" alt="Lavender Bubbles Shampoo Pack" class="product-thumb">
+                    <div class="product-body">
+                        <span class="product-cat-tag">Grooming Spa</span>
+                        <h3 class="product-name">Lavender Spa Shampoo</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (5.0)
+                        </div>
+                        <div class="product-bottom">
+                            <span class="product-price">$24.50</span>
+                            <button class="btn-add-cart" data-id="p2" data-name="Lavender Spa Shampoo" data-price="24.50" data-img="./assets/images/grooming.jpg">
+                                <i class="fa-solid fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-category="cat">
+                    <img src="./assets/images/hero.jpg" alt="Interactive Feather Cat Teaser" class="product-thumb">
+                    <div class="product-body">
+                        <span class="product-cat-tag">Cat Toys</span>
+                        <h3 class="product-name">Interactive Cat Teaser</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (4.7)
+                        </div>
+                        <div class="product-bottom">
+                            <span class="product-price">$16.99</span>
+                            <button class="btn-add-cart" data-id="p3" data-name="Interactive Cat Teaser" data-price="16.99" data-img="./assets/images/hero.jpg">
+                                <i class="fa-solid fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-category="dog">
+                    <img src="./assets/images/food.jpg" alt="Natural Dental Chew Bones" class="product-thumb">
+                    <div class="product-body">
+                        <span class="product-cat-tag">Dog Treats</span>
+                        <h3 class="product-name">Dental Chew Bones (12x)</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.8)
+                        </div>
+                        <div class="product-bottom">
+                            <span class="product-price">$19.99</span>
+                            <button class="btn-add-cart" data-id="p4" data-name="Dental Chew Bones" data-price="19.99" data-img="./assets/images/food.jpg">
+                                <i class="fa-solid fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Grooming Spa Calculator Section -->
+        <section id="grooming" class="grooming-section">
+            <div class="grooming-card">
+                <div>
+                    <span class="hero-tag"><i class="fa-solid fa-calculator"></i> INSTANT ESTIMATOR</span>
+                    <h2 class="section-title">Grooming Spa <span class="coral-text">Calculator</span></h2>
+                    <p style="color: var(--text-muted); margin-bottom: 24px;">
+                        Select your pet details to calculate the exact appointment duration and estimated spa cost.
+                    </p>
+
+                    <div class="calc-group">
+                        <label class="calc-label">Select Pet Type:</label>
+                        <select class="calc-select" id="petTypeSelect">
+                            <option value="dog_small">Small Dog (< 10kg) - $45</option>
+                            <option value="dog_large" selected>Medium / Large Dog - $65</option>
+                            <option value="cat">Fluffy Cat - $50</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-group">
+                        <label class="calc-label">Select Spa Package:</label>
+                        <select class="calc-select" id="spaPackageSelect">
+                            <option value="basic">Basic Bath & Brush (+ $0)</option>
+                            <option value="full" selected>Full Pampering & Haircut (+ $30)</option>
+                            <option value="deluxe">Deluxe Spa (Bubbles, Teeth & Nails) (+ $50)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="price-estimate-box">
+                    <i class="fa-solid fa-soap" style="font-size: 3rem; color: var(--primary-coral);"></i>
+                    <div style="font-weight: 700; color: var(--text-muted); margin-top: 10px;">Estimated Appointment Cost:</div>
+                    <div class="estimate-amount" id="spaPriceText">$95.00</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;" id="spaDurationText">
+                        Estimated Spa Time: ~90 Minutes
+                    </div>
+                    <button class="btn-coral" id="btnBookSpaNow" style="width: 100%; justify-content: center;">
+                        <i class="fa-solid fa-calendar-plus"></i> Confirm Spa Reservation
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1320px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-paw" style="color: var(--primary-coral); font-size: 1.4rem;"></i>
+                <span style="font-weight: 800; color: #fff; font-size: 1.2rem;">Pawfect Haven</span>
+            </div>
+            <div>© 2026 Pawfect Haven Pet Shop. All rights reserved.</div>
+            <a href="../index.html" style="color: var(--primary-coral); text-decoration: none; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left"></i> Return to Developer Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer -->
+    <div class="cart-overlay-bg" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 style="font-size: 1.2rem;"><i class="fa-solid fa-cart-shopping" style="color: var(--primary-coral);"></i> Your Shopping Cart</h3>
+            <button id="closeCartBtn" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="cart-items-list" id="cartItemsList">
+            <!-- Items rendered dynamically via app.js -->
+        </div>
+
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 1.2rem; margin-bottom: 16px;">
+                <span>Total Subtotal:</span>
+                <span id="cartTotalPrice" class="coral-text">$0.00</span>
+            </div>
+            <button class="btn-coral" id="btnCheckout" style="width: 100%; justify-content: center;">
+                <i class="fa-solid fa-credit-card"></i> Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- JS Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
