@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Custom Sanctuary Voyage | Aetheria Voyages</title>
+  <meta name="description" content="Calculate and confirm your custom travel itinerary with Aetheria Voyages. Secure online reservation system with real-time pricing indicators.">
+  <link rel="stylesheet" href="index.css">
+  <script src="app.js" defer></script>
+</head>
+<body style="padding-top: 100px;">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="header header-scrolled" id="main-header">
+    <div class="container nav-container" style="height: 60px;">
+      <a href="index.html" class="logo" id="brand-logo" aria-label="Aetheria Voyages Home">
+        <span class="logo-icon"></span>
+        Aetheria
+      </a>
+      
+      <nav class="nav-menu" id="navigation-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="tours.html" class="nav-link" id="nav-tours">Explore Tours</a>
+        <a href="destinations.html" class="nav-link" id="nav-destinations">Destinations</a>
+        <a href="booking.html" class="nav-link" id="nav-booking">Book Voyage</a>
+        <a href="about.html" class="nav-link" id="nav-about">Our Story</a>
+        <a href="booking.html" class="btn btn-primary" id="nav-cta-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Reserve Now</a>
+      </nav>
+      
+      <button class="nav-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="navigation-menu" aria-label="Toggle navigation menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- BOOKING SECTION -->
+  <main class="container" style="min-height: 80vh;">
+    
+    <div class="booking-wizard">
+      <!-- Steps Indicator -->
+      <div class="steps-indicator" aria-label="Booking Progress">
+        <div class="step-node active" id="step-node-1">1</div>
+        <div class="step-node" id="step-node-2">2</div>
+        <div class="step-node" id="step-node-3">3</div>
+        <div class="step-node" id="step-node-4">4</div>
+      </div>
+
+      <!-- Main Form Card -->
+      <form class="glass-card wizard-card" id="booking-wizard" onsubmit="event.preventDefault();">
+        
+        <!-- STEP 1: ITINERARY DETAILS -->
+        <div class="wizard-step active" id="wizard-step-1">
+          <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: var(--space-xs);">Configure Your <span>Voyage</span></h2>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: var(--space-xl);">Choose your destination sanctuary, travel dates, and companion count.</p>
+          
+          <div class="form-grid">
+            <div class="form-control">
+              <label for="book-destination">Select Sanctuary</label>
+              <select id="book-destination" required>
+                <!-- Filled in app.js -->
+              </select>
+            </div>
+            <div class="form-control">
+              <label for="book-date">Departure Date</label>
+              <input type="date" id="book-date" required min="2026-08-01">
+            </div>
+            <div class="form-control">
+              <label for="book-travelers">Travelers</label>
+              <input type="number" id="book-travelers" min="1" max="10" value="1" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: CUSTOMER CONTACT DETAILS -->
+        <div class="wizard-step" id="wizard-step-2">
+          <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: var(--space-xs);">Contact <span>Information</span></h2>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: var(--space-xl);">Provide passenger contact info and optional requests for our travel architects.</p>
+          
+          <div class="form-grid">
+            <div class="form-control">
+              <label for="book-name">Full Name</label>
+              <input type="text" id="book-name" placeholder="Passenger's full legal name" required>
+            </div>
+            <div class="form-control">
+              <label for="book-email">Email Address</label>
+              <input type="email" id="book-email" placeholder="email@example.com" required>
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="book-requests">Special requests (Optional)</label>
+            <textarea id="book-requests" rows="3" placeholder="Dietary rules, room preference, private guide setup..."></textarea>
+          </div>
+        </div>
+
+        <!-- STEP 3: PRICE SUMMARY AND PAYMENT SIMULATION -->
+        <div class="wizard-step" id="wizard-step-3">
+          <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: var(--space-xs);">Confirm <span>Reservation</span></h2>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: var(--space-xl);">Review your pricing ledger before completing booking payment.</p>
+          
+          <!-- Pricing Ledger Receipt -->
+          <div class="receipt-card">
+            <div class="receipt-row">
+              <span style="color: var(--color-text-muted);">Sanctuary Destination</span>
+              <span id="receipt-destination" style="font-weight: 700;">TBD</span>
+            </div>
+            <div class="receipt-row">
+              <span style="color: var(--color-text-muted);">Unit Price per Person</span>
+              <span id="receipt-price">TBD</span>
+            </div>
+            <div class="receipt-row">
+              <span style="color: var(--color-text-muted);">Total Guests</span>
+              <span id="receipt-travelers">1</span>
+            </div>
+            <div class="receipt-row">
+              <span style="color: var(--color-text-muted);">Tourism Tax & Processing (8%)</span>
+              <span>Calculated on next step</span>
+            </div>
+            <div class="receipt-row total">
+              <span>Total Cost</span>
+              <span id="receipt-total">Select destination first</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: SUCCESS PASS -->
+        <div class="wizard-step" id="wizard-step-4">
+          <div class="text-center" style="margin-bottom: var(--space-lg);">
+            <div style="font-size: 3rem; margin-bottom: var(--space-xs);">✨</div>
+            <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: var(--space-2xs);">Voyage <span>Confirmed!</span></h2>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem;">Your reservation is locked. Below is your official Aetheria Boarding Pass.</p>
+          </div>
+          
+          <!-- Travel Boarding Pass Card -->
+          <div class="travel-pass" id="printable-pass">
+            <div class="pass-header">
+              <span class="pass-logo">AETHERIA VOYAGES</span>
+              <span class="pass-status">Active Pass</span>
+            </div>
+            <div class="pass-grid">
+              <div class="info-item">
+                <span class="info-label">Passenger Name</span>
+                <span class="info-val" id="pass-val-passenger" style="color: var(--color-text-main);">Voyager</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Voucher Code</span>
+                <span class="info-val" id="pass-val-code" style="color: var(--color-secondary);">AE-XXXXXX</span>
+              </div>
+              <div class="info-item" style="margin-top: var(--space-xs);">
+                <span class="info-label">Destination</span>
+                <span class="info-val" id="pass-val-destination" style="color: var(--color-text-main);">Sanctuary</span>
+              </div>
+              <div class="info-item" style="margin-top: var(--space-xs);">
+                <span class="info-label">Departure Date</span>
+                <span class="info-val" id="pass-val-date" style="color: var(--color-text-main);">TBD</span>
+              </div>
+              <div class="info-item" style="margin-top: var(--space-xs);">
+                <span class="info-label">Total Guests</span>
+                <span class="info-val" id="pass-val-guests" style="color: var(--color-text-main);">1</span>
+              </div>
+              <div class="info-item" style="margin-top: var(--space-xs);">
+                <span class="info-label">Amount Paid</span>
+                <span class="info-val" id="pass-val-cost" style="color: var(--color-primary);">$0.00</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center">
+            <button class="btn btn-primary" onclick="window.print();" id="btn-print-pass">Print Boarding Pass</button>
+            <a href="index.html" class="btn btn-secondary" style="margin-left: var(--space-sm);">Back to Homepage</a>
+          </div>
+        </div>
+
+        <!-- Wizard Navigation Buttons -->
+        <div class="wizard-nav">
+          <button type="button" class="btn btn-secondary" id="btn-prev">Back</button>
+          <button type="button" class="btn btn-primary" id="btn-next">Continue</button>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: var(--space-xs);" id="footer-logo">
+            <span class="logo-icon"></span>
+            Aetheria
+          </a>
+          <p class="footer-desc">Crafting high-fidelity journeys to the world's most spectacular, peaceful, and historic sanctuaries.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title">Explore</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="tours.html" class="footer-link">Bespoke Tours</a></li>
+            <li><a href="destinations.html" class="footer-link">Destinations</a></li>
+            <li><a href="booking.html" class="footer-link">Booking Wizard</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="about.html" class="footer-link">Our Philosophy</a></li>
+            <li><a href="about.html#faq-section" class="footer-link">FAQs</a></li>
+            <li><a href="about.html#contact-section" class="footer-link">Get In Touch</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title">Join Newsletter</h4>
+          <p class="footer-desc" style="font-size: 0.85rem; margin-bottom: var(--space-xs);">Get curated travel guides and exclusive off-market destination releases.</p>
+          <form style="display: flex; gap: 8px;" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Aetheria Voyages newsletter!'); this.reset();" id="newsletter-form">
+            <input type="email" placeholder="Your email" required style="padding: 0.5rem var(--space-md); background: rgba(7, 10, 19, 0.4); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-full); color: var(--color-text-main); font-size: 0.85rem; outline: none; width: 100%;">
+            <button type="submit" class="btn btn-primary" style="padding: 0.5rem var(--space-md); font-size: 0.85rem; border-radius: var(--radius-full);" id="newsletter-submit-btn">✓</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Aetheria Voyages Inc. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon" aria-label="Aetheria Facebook">FB</a>
+          <a href="#" class="social-icon" aria-label="Aetheria Instagram">IG</a>
+          <a href="#" class="social-icon" aria-label="Aetheria X (Twitter)">X</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

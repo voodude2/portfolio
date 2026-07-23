@@ -1,0 +1,235 @@
+/* ==========================================================================
+   DEVELOPER PORTFOLIO & PROJECTS SHOWCASE LOGIC
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const projectData = {
+        web3: {
+            title: "Mucho Coin ($MCH) - Solana Crypto Platform",
+            desc: "A futuristic Solana-powered cryptocurrency platform built with 100% offline Javascript architecture. Includes a DEX Swap simulator, APY Staking calculator, AirDrop verification module, and native SVG Trading View chart engine.",
+            features: [
+                "⚡ Solana Blockchain 65,000 TPS speed integration simulation",
+                "📊 100% Native SVG vector chart with 15M/1H/1D/1W timeframes & Candles mode",
+                "🔄 Interactive DEX Swap with SOL to MCH exchange calculation",
+                "🔒 Staking Vault yield calculator with real-time APY estimates"
+            ],
+            link: "../page 3/index.html"
+        },
+        travel: {
+            title: "GlobeTrotter Travel & Tours Hub",
+            desc: "A luxury single page travel booking web application designed for discovering tropical destinations, booking custom tour packages, and exploring resort guides with a modern glassmorphism design system.",
+            features: [
+                "🏖️ Destination search & category filtering",
+                "📅 Interactive tour booking form wizard",
+                "⭐ Customer reviews and rating showcase",
+                "📱 Responsive mobile-first layout with smooth CSS transitions"
+            ],
+            link: "../page 2/index.html"
+        }
+    };
+
+    // Safe Execution Wrapper
+    const inits = [
+        initNavigation,
+        initParticleCanvas,
+        initProjectFiltering,
+        initProjectModal,
+        initContactForm
+    ];
+
+    inits.forEach(fn => {
+        try {
+            fn();
+        } catch (err) {
+            console.error(`Portfolio init error in ${fn.name}:`, err);
+        }
+    });
+
+    /* ==========================================
+       1. NAVBAR & SCROLL LOGIC
+       ========================================== */
+    function initNavigation() {
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (navbar) {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+    }
+
+    /* ==========================================
+       2. PARTICLE CANVAS ENGINE
+       ========================================== */
+    let canvas, ctx, particles = [];
+
+    function initParticleCanvas() {
+        canvas = document.getElementById('particle-canvas');
+        if (!canvas) return;
+        ctx = canvas.getContext('2d');
+        resizeCanvas();
+
+        window.addEventListener('resize', resizeCanvas);
+
+        const particleCount = Math.floor((canvas.width * canvas.height) / 25000);
+        particles = [];
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                color: Math.random() > 0.5 ? 'rgba(153, 69, 255, ' : 'rgba(0, 242, 254, ',
+                opacity: Math.random() * 0.3 + 0.1,
+                vx: (Math.random() - 0.5) * 0.25,
+                vy: (Math.random() - 0.5) * 0.25
+            });
+        }
+
+        animateParticles();
+    }
+
+    function resizeCanvas() {
+        if (!canvas) return;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function animateParticles() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0) p.x = canvas.width;
+            if (p.x > canvas.width) p.x = 0;
+            if (p.y < 0) p.y = canvas.height;
+            if (p.y > canvas.height) p.y = 0;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color + p.opacity + ')';
+            ctx.fill();
+        });
+
+        requestAnimationFrame(animateParticles);
+    }
+
+    /* ==========================================
+       3. PROJECT CATEGORY FILTERING LOGIC
+       ========================================== */
+    function initProjectFiltering() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const cat = card.getAttribute('data-category');
+                    if (filter === 'all' || filter === cat) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    }
+
+    /* ==========================================
+       4. PROJECT DETAILS MODAL
+       ========================================== */
+    function initProjectModal() {
+        const modal = document.getElementById('projectModal');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const detailBtns = document.querySelectorAll('.btn-card-details');
+
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalFeatures = document.getElementById('modalFeatures');
+        const modalLaunchBtn = document.getElementById('modalLaunchBtn');
+
+        detailBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const key = btn.getAttribute('data-modal');
+                const info = projectData[key];
+
+                if (info) {
+                    if (modalTitle) modalTitle.textContent = info.title;
+                    if (modalDesc) modalDesc.textContent = info.desc;
+                    if (modalLaunchBtn) modalLaunchBtn.setAttribute('href', info.link);
+
+                    if (modalFeatures) {
+                        modalFeatures.innerHTML = `
+                            <h4 style="margin-bottom: 10px; color: var(--color-green);">Key Features:</h4>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                                ${info.features.map(f => `<li style="font-size: 0.9rem; color: var(--text-secondary);"><i class="fa-solid fa-check" style="color: var(--color-green); margin-right: 8px;"></i> ${f}</li>`).join('')}
+                            </ul>
+                        `;
+                    }
+
+                    if (modal) modal.classList.add('active');
+                }
+            });
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                if (modal) modal.classList.remove('active');
+            });
+        }
+
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+        }
+    }
+
+    /* ==========================================
+       5. CONTACT FORM & TOAST
+       ========================================== */
+    function initContactForm() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+                form.reset();
+                showToast('🚀 Thank you! Your message has been sent successfully.');
+            }, 1000);
+        });
+    }
+
+    window.showToast = function(msg) {
+        const container = document.getElementById('toastContainer');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: var(--color-green);"></i> <span>${msg}</span>`;
+
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    };
+
+});

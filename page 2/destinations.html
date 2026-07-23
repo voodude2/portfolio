@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Sanctuaries & Destinations | Aetheria Voyages</title>
+  <meta name="description" content="Discover our travel map. Learn details, average rating, duration, and pricing options for Mount Fuji, Amalfi Coast, Petra, and Iceland.">
+  <link rel="stylesheet" href="index.css">
+  <script src="app.js" defer></script>
+</head>
+<body style="padding-top: 100px;">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="header header-scrolled" id="main-header">
+    <div class="container nav-container" style="height: 60px;">
+      <a href="index.html" class="logo" id="brand-logo" aria-label="Aetheria Voyages Home">
+        <span class="logo-icon"></span>
+        Aetheria
+      </a>
+      
+      <nav class="nav-menu" id="navigation-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="tours.html" class="nav-link" id="nav-tours">Explore Tours</a>
+        <a href="destinations.html" class="nav-link" id="nav-destinations">Destinations</a>
+        <a href="booking.html" class="nav-link" id="nav-booking">Book Voyage</a>
+        <a href="about.html" class="nav-link" id="nav-about">Our Story</a>
+        <a href="booking.html" class="btn btn-primary" id="nav-cta-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Reserve Now</a>
+      </nav>
+      
+      <button class="nav-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="navigation-menu" aria-label="Toggle navigation menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- DESTINATIONS PAGE CONTENT -->
+  <main class="container" style="min-height: 70vh;">
+    <div style="margin-bottom: var(--space-2xl);">
+      <span class="hero-tag" style="margin-bottom: var(--space-xs);">World Map</span>
+      <h1 class="section-title" style="margin: 0;">Our Curated <span>Sanctuaries</span></h1>
+      <p style="color: var(--color-text-muted); font-size: 1.1rem; margin-top: 4px;">Click on any destination card to open the immersion details dialog and learn more.</p>
+    </div>
+
+    <!-- Destinations Grid -->
+    <div class="categories-grid" id="destinations-container">
+      <!-- Dynamically populated in app.js -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: var(--space-xs);" id="footer-logo">
+            <span class="logo-icon"></span>
+            Aetheria
+          </a>
+          <p class="footer-desc">Crafting high-fidelity journeys to the world's most spectacular, peaceful, and historic sanctuaries.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title">Explore</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="tours.html" class="footer-link">Bespoke Tours</a></li>
+            <li><a href="destinations.html" class="footer-link">Destinations</a></li>
+            <li><a href="booking.html" class="footer-link">Booking Wizard</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="about.html" class="footer-link">Our Philosophy</a></li>
+            <li><a href="about.html#faq-section" class="footer-link">FAQs</a></li>
+            <li><a href="about.html#contact-section" class="footer-link">Get In Touch</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-title">Join Newsletter</h4>
+          <p class="footer-desc" style="font-size: 0.85rem; margin-bottom: var(--space-xs);">Get curated travel guides and exclusive off-market destination releases.</p>
+          <form style="display: flex; gap: 8px;" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Aetheria Voyages newsletter!'); this.reset();" id="newsletter-form">
+            <input type="email" placeholder="Your email" required style="padding: 0.5rem var(--space-md); background: rgba(7, 10, 19, 0.4); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-full); color: var(--color-text-main); font-size: 0.85rem; outline: none; width: 100%;">
+            <button type="submit" class="btn btn-primary" style="padding: 0.5rem var(--space-md); font-size: 0.85rem; border-radius: var(--radius-full);" id="newsletter-submit-btn">✓</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Aetheria Voyages Inc. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon" aria-label="Aetheria Facebook">FB</a>
+          <a href="#" class="social-icon" aria-label="Aetheria Instagram">IG</a>
+          <a href="#" class="social-icon" aria-label="Aetheria X (Twitter)">X</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
