@@ -5,6 +5,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
+        pcbuilder: {
+            title: "CyberForge 3D PC Builder & Hardware Store",
+            desc: "A state-of-the-art WebGL 3D Custom PC Assembly Studio powered by Three.js. Users interactively select computer components (RTX 4090 GPUs, i9 CPUs, DDR5 RAM, AIO liquid coolers) and watch them assemble dynamically inside a 3D glass PC chassis with customizable RGB lighting and real-time wattage calculations.",
+            features: [
+                "💻 Interactive Three.js WebGL 3D PC Stage (Mouse 3D rotate & zoom)",
+                "⚡ Real-Time Wattage & TDP Power Calculator Engine",
+                "🌈 Customizable 3D RGB Lighting Modes (Cyberpunk, Rainbow, Emerald, Stealth)",
+                "🛒 Multi-page Hardware Store Catalog (parts.html) with socket compatibility check"
+            ],
+            link: "./page 8/index.html"
+        },
         herpetology: {
             title: "Snakes of Georgia - Caucasian Herpetology Guide & Species Catalog",
             desc: "A comprehensive English multi-page web application featuring all 20+ native snake species of Georgia. Includes toxicity filtering (Vipers vs. Harmless), detailed scientific profiles, snake identification guides, and emergency first-aid protocols.",
