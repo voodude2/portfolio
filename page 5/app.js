@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let activeCat = 'all';
         let activeCaliber = 'all';
 
-        // Read URL query params (e.g. catalog.html?cat=rifle)
+        // Read URL query params (e.g. catalog.html?cat=optics)
         const urlParams = new URLSearchParams(window.location.search);
         const catParam = urlParams.get('cat');
         if (catParam) {
@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     b.classList.remove('active');
                 }
             });
+            applyFilters();
         }
 
         filterBtns.forEach(btn => {
