@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firearms & Hunting Gear Catalog | Apex Hunter</title>
+    <meta name="description" content="Browse our official firearms catalog featuring hunting rifles, shotguns, thermal optics, ammo, and specifications.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-badge">
+                    <i class="fa-solid fa-crosshairs"></i>
+                </div>
+                <div>
+                    <div class="brand-title">APEX <span class="amber-text">HUNTER</span></div>
+                    <div class="brand-subtitle">Firearms & Hunting Outfitter</div>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html" class="active">Firearms Catalog</a></li>
+                    <li><a href="index.html#guide">Licensing Guide</a></li>
+                    <li><a href="../index.html" style="color: var(--accent-amber);"><i class="fa-solid fa-arrow-left"></i> Portfolio</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <a href="index.html" class="btn-forest">
+                    <i class="fa-solid fa-house"></i> Main Page
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalog Page Hero Banner -->
+    <section style="background: var(--bg-dark); color: #fff; padding-top: 130px; padding-bottom: 40px; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 24px;">
+            <span class="hero-tag"><i class="fa-solid fa-gun"></i> OFFICIAL OUTFITTER CATALOG</span>
+            <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 12px;">Firearms & <span class="amber-text">Optics Catalog</span></h1>
+            <p style="color: #A0AAB0;">Explore precision hunting rifles, shotguns, and thermal optics with complete technical specs.</p>
+        </div>
+    </section>
+
+    <!-- Catalog Content Section -->
+    <main style="max-width: 1320px; margin: 50px auto 100px; padding: 0 24px;">
+
+        <!-- Filter Controls Bar -->
+        <div style="background: #fff; border: 1px solid var(--border-light); padding: 20px; border-radius: var(--radius-md); margin-bottom: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; box-shadow: var(--shadow-soft);">
+            
+            <div class="filter-tabs" style="margin-bottom: 0;">
+                <button class="filter-btn active" data-filter="all">All Items</button>
+                <button class="filter-btn" data-filter="rifle">Rifles</button>
+                <button class="filter-btn" data-filter="shotgun">Shotguns</button>
+                <button class="filter-btn" data-filter="optics">Thermal Optics</button>
+                <button class="filter-btn" data-filter="ammo">Ammunition</button>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <label style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted);">Caliber Filter:</label>
+                <select id="caliberSelect" style="padding: 8px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-light); font-family: var(--font-body); font-weight: 600; outline: none; background: #fff;">
+                    <option value="all">All Calibers</option>
+                    <option value="308">.308 Winchester</option>
+                    <option value="6.5">6.5 Creedmoor</option>
+                    <option value="12g">12 Gauge</option>
+                    <option value="3006">.30-06 Springfield</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Catalog Items Grid -->
+        <div class="firearms-grid" id="catalogGrid">
+
+            <!-- Item 1 -->
+            <div class="firearm-card" data-category="rifle" data-caliber="308">
+                <img src="./assets/images/hero.jpg" alt="Apex Timber .308 Win" class="firearm-thumb">
+                <div class="firearm-body">
+                    <span class="firearm-category">Bolt Action Rifle</span>
+                    <h3 class="firearm-title">Apex Timber .308 Win</h3>
+                    <ul class="firearm-specs-list">
+                        <li><i class="fa-solid fa-check forest-text"></i> Caliber: .308 Winchester</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Barrel Length: 22 Inches</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Accuracy: 0.5 MOA Guaranteed</li>
+                    </ul>
+                    <div class="firearm-bottom">
+                        <span class="firearm-price">$1,299.00</span>
+                        <button class="btn-amber btn-spec-modal" data-id="r1" data-title="Apex Timber .308 Win" data-price="$1,299.00" data-caliber=".308 Winchester" data-barrel="22 Inches Threaded" data-weight="3.2 kg" data-mag="5+1 Round Detachable" data-desc="Designed for precision big game hunting. Features a walnut stock with matte blued barrel finish and smooth 60-degree bolt throw.">
+                            View Specs
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="firearm-card" data-category="rifle" data-caliber="6.5">
+                <img src="./assets/images/rifle.jpg" alt="Creedmoor Mountain Hunter" class="firearm-thumb">
+                <div class="firearm-body">
+                    <span class="firearm-category">Long Range Rifle</span>
+                    <h3 class="firearm-title">Creedmoor Hunter 6.5</h3>
+                    <ul class="firearm-specs-list">
+                        <li><i class="fa-solid fa-check forest-text"></i> Caliber: 6.5 Creedmoor</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Barrel: Carbon Fiber Wrapped</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Weight: Ultra-light 2.9 kg</li>
+                    </ul>
+                    <div class="firearm-bottom">
+                        <span class="firearm-price">$1,850.00</span>
+                        <button class="btn-amber btn-spec-modal" data-id="r2" data-title="Creedmoor Hunter 6.5" data-price="$1,850.00" data-caliber="6.5 Creedmoor" data-barrel="24 Inches Carbon Fiber" data-weight="2.9 kg" data-mag="4+1 Round Box Mag" data-desc="Built for high-altitude mountain hunting where weight and flat trajectory caliber are critical. Includes adjustable match trigger.">
+                            View Specs
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="firearm-card" data-category="optics" data-caliber="all">
+                <img src="./assets/images/optics.jpg" alt="Thermion Thermal Scope" class="firearm-thumb">
+                <div class="firearm-body">
+                    <span class="firearm-category">Thermal Optics</span>
+                    <h3 class="firearm-title">Thermion 2 LRF XP50</h3>
+                    <ul class="firearm-specs-list">
+                        <li><i class="fa-solid fa-check forest-text"></i> Sensor: 640x480 Uncooled Thermal</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Detection Range: 1,800 Meters</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Built-in Laser Rangefinder</li>
+                    </ul>
+                    <div class="firearm-bottom">
+                        <span class="firearm-price">$3,490.00</span>
+                        <button class="btn-amber btn-spec-modal" data-id="o1" data-title="Thermion 2 LRF XP50" data-price="$3,490.00" data-caliber="Universal Rail Mount" data-barrel="N/A (Optic)" data-weight="0.9 kg" data-mag="Rechargeable Li-Ion (10h)" data-desc="Premium thermal imaging scope for night hunting and predator control. Features HD AMOLED display and video recording with audio.">
+                            View Specs
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="firearm-card" data-category="shotgun" data-caliber="12g">
+                <img src="./assets/images/hero.jpg" alt="Tactical Waterfowl 12G" class="firearm-thumb">
+                <div class="firearm-body">
+                    <span class="firearm-category">Hunting Shotgun</span>
+                    <h3 class="firearm-title">Tactical Waterfowl 12G</h3>
+                    <ul class="firearm-specs-list">
+                        <li><i class="fa-solid fa-check forest-text"></i> Gauge: 12 Gauge (3.5" Chamber)</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Action: Semi-Automatic Gas System</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Finish: Realtree Camo Stock</li>
+                    </ul>
+                    <div class="firearm-bottom">
+                        <span class="firearm-price">$1,150.00</span>
+                        <button class="btn-amber btn-spec-modal" data-id="s1" data-title="Tactical Waterfowl 12G" data-price="$1,150.00" data-caliber="12 Gauge (3.5 Inch)" data-barrel="28 Inches Vent Rib" data-weight="3.4 kg" data-mag="4+1 Tubular Magazine" data-desc="Engineered for harsh wetland conditions. Features corrosion-resistant internal coatings and oversized control buttons for gloved operation.">
+                            View Specs
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="firearm-card" data-category="rifle" data-caliber="3006">
+                <img src="./assets/images/rifle.jpg" alt="Predator Classic .30-06" class="firearm-thumb">
+                <div class="firearm-body">
+                    <span class="firearm-category">Classic Hunting Rifle</span>
+                    <h3 class="firearm-title">Predator Classic .30-06</h3>
+                    <ul class="firearm-specs-list">
+                        <li><i class="fa-solid fa-check forest-text"></i> Caliber: .30-06 Springfield</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Stock: Grade II Walnut</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Action: Controlled Round Feed</li>
+                    </ul>
+                    <div class="firearm-bottom">
+                        <span class="firearm-price">$1,420.00</span>
+                        <button class="btn-amber btn-spec-modal" data-id="r3" data-title="Predator Classic .30-06" data-price="$1,420.00" data-caliber=".30-06 Springfield" data-barrel="22 Inches Tapered" data-weight="3.5 kg" data-mag="4+1 Internal Floorplate" data-desc="The iconic traditional hunting rifle for North American big game. Timeless design paired with modern precision tolerances.">
+                            View Specs
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="firearm-card" data-category="ammo" data-caliber="308">
+                <img src="./assets/images/optics.jpg" alt="Match Grade .308 Ammo Pack" class="firearm-thumb">
+                <div class="firearm-body">
+                    <span class="firearm-category">Ammunition</span>
+                    <h3 class="firearm-title">Match Grade .308 (100x)</h3>
+                    <ul class="firearm-specs-list">
+                        <li><i class="fa-solid fa-check forest-text"></i> Caliber: .308 Winchester</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Bullet: 168gr BPT Polymer Tip</li>
+                        <li><i class="fa-solid fa-check forest-text"></i> Quantity: 100 Rounds / Box</li>
+                    </ul>
+                    <div class="firearm-bottom">
+                        <span class="firearm-price">$120.00</span>
+                        <button class="btn-amber btn-spec-modal" data-id="a1" data-title="Match Grade .308 (100x)" data-price="$120.00" data-caliber=".308 Winchester (168gr)" data-barrel="N/A (Ammo)" data-weight="2.4 kg Box" data-mag="100 Rounds Pack" data-desc="Match grade precision hunting ammunition designed for maximum ballistic coefficient and terminal expansion.">
+                            View Specs
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Firearms Specification Modal Overlay -->
+    <div class="modal-overlay" id="specModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeSpecModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <span class="firearm-category" id="modalCategoryTag">Firearm Specs</span>
+            <h2 class="amber-text" id="modalTitle" style="font-size: 1.8rem; margin-bottom: 8px;">Firearm Specifications</h2>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary-forest); margin-bottom: 16px;" id="modalPrice">$0.00</div>
+            
+            <p id="modalDesc" style="color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-size: 0.95rem;"></p>
+
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.9rem;">
+                <tr style="border-bottom: 1px solid var(--border-light);">
+                    <td style="padding: 8px 0; font-weight: 700; color: var(--text-muted);">Caliber / Spec:</td>
+                    <td style="padding: 8px 0; font-weight: 700; text-align: right;" id="modalCaliber">-</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-light);">
+                    <td style="padding: 8px 0; font-weight: 700; color: var(--text-muted);">Barrel Specification:</td>
+                    <td style="padding: 8px 0; font-weight: 700; text-align: right;" id="modalBarrel">-</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-light);">
+                    <td style="padding: 8px 0; font-weight: 700; color: var(--text-muted);">Overall Weight:</td>
+                    <td style="padding: 8px 0; font-weight: 700; text-align: right;" id="modalWeight">-</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-light);">
+                    <td style="padding: 8px 0; font-weight: 700; color: var(--text-muted);">Capacity / Battery:</td>
+                    <td style="padding: 8px 0; font-weight: 700; text-align: right;" id="modalMag">-</td>
+                </tr>
+            </table>
+
+            <div style="display: flex; gap: 12px;">
+                <button class="btn-amber" id="btnRequestQuote" style="flex-grow: 1; justify-content: center;">
+                    <i class="fa-solid fa-file-invoice"></i> Request FFL Order Quote
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1320px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-crosshairs" style="color: var(--accent-amber); font-size: 1.4rem;"></i>
+                <span style="font-weight: 800; color: #fff; font-size: 1.2rem;">APEX HUNTER</span>
+            </div>
+            <div>© 2026 Apex Hunter Outfitters. All rights reserved.</div>
+            <a href="../index.html" style="color: var(--accent-amber); text-decoration: none; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left"></i> Return to Developer Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <!-- App JS -->
+    <script src="app.js"></script>
+</body>
+</html>

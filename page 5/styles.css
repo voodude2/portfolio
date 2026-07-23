@@ -1,0 +1,584 @@
+/* ==========================================================================
+   APEX HUNTER - PREMIUM HUNTING & FIREARMS OUTFITTER DESIGN SYSTEM
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap');
+
+:root {
+    --bg-main: #F5F2EB;
+    --bg-surface: #FFFFFF;
+    --bg-dark: #111613;
+    --bg-forest: #1B3B2B;
+    --bg-card: #FFFFFF;
+    
+    --primary-forest: #1B3B2B;
+    --primary-olive: #3E5C46;
+    
+    --accent-amber: #C88D43;
+    --accent-amber-light: #E6A15C;
+    --accent-gold: #D4AF37;
+    
+    --text-dark: #111613;
+    --text-muted: #5A655D;
+    --text-light: #F5F2EB;
+    
+    --border-light: rgba(62, 92, 70, 0.15);
+    --border-amber: rgba(200, 141, 67, 0.4);
+    
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+    
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    
+    --shadow-soft: 0 10px 30px rgba(17, 22, 19, 0.06);
+    --shadow-amber: 0 12px 35px rgba(200, 141, 67, 0.25);
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.amber-text { color: var(--accent-amber); }
+.forest-text { color: var(--primary-forest); }
+
+/* Header & Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 85px;
+    z-index: 1000;
+    background: rgba(17, 22, 19, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    height: 75px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+}
+
+.brand-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--accent-amber) 0%, var(--primary-forest) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #fff;
+    box-shadow: var(--shadow-amber);
+}
+
+.brand-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.brand-subtitle {
+    font-size: 0.7rem;
+    color: var(--accent-amber);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #A0AAB0;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #fff;
+    background: rgba(200, 141, 67, 0.2);
+}
+
+.btn-amber {
+    background: var(--accent-amber);
+    color: #fff;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-amber);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.btn-amber:hover {
+    background: var(--accent-amber-light);
+    transform: translateY(-2px);
+}
+
+.btn-forest {
+    background: var(--primary-forest);
+    color: #fff;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-amber);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.btn-forest:hover {
+    background: var(--primary-olive);
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    padding-top: 140px;
+    padding-bottom: 90px;
+    background: var(--bg-dark);
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200, 141, 67, 0.15);
+    border: 1px solid var(--border-amber);
+    padding: 6px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-amber);
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: #A0AAB0;
+    margin-bottom: 32px;
+    max-width: 580px;
+}
+
+.hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.hero-specs-row {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+}
+
+.hero-spec-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-amber);
+    font-family: var(--font-heading);
+}
+
+.hero-spec-label {
+    font-size: 0.8rem;
+    color: #7A8890;
+    text-transform: uppercase;
+}
+
+.hero-visual-card {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 2px solid var(--border-amber);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.hero-visual-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Category Grid Section */
+.categories-section {
+    max-width: 1320px;
+    margin: -40px auto 90px;
+    padding: 0 24px;
+    position: relative;
+    z-index: 100;
+}
+
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.cat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: var(--text-dark);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.25s ease;
+}
+
+.cat-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-amber);
+    box-shadow: var(--shadow-amber);
+}
+
+.cat-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-sm);
+    background: rgba(27, 59, 43, 0.08);
+    color: var(--primary-forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+/* Featured Section */
+.featured-section {
+    max-width: 1320px;
+    margin: 0 auto 100px;
+    padding: 0 24px;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+.section-tag {
+    color: var(--accent-amber);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+}
+
+.filter-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    color: var(--text-muted);
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: var(--font-heading);
+    transition: all 0.25s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary-forest);
+    color: #fff;
+    border-color: var(--primary-forest);
+}
+
+/* Firearms Grid */
+.firearms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.firearm-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.firearm-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--accent-amber);
+}
+
+.firearm-card.hidden {
+    display: none;
+}
+
+.firearm-thumb {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #EAE6DC;
+}
+
+.firearm-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.firearm-category {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent-amber);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.firearm-title {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.firearm-specs-list {
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.firearm-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+}
+
+.firearm-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-forest);
+}
+
+/* Licensing Guide Section */
+.guide-section {
+    background: var(--bg-forest);
+    color: #fff;
+    padding: 90px 24px;
+    margin-bottom: 100px;
+}
+
+.guide-container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.guide-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.step-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 24px;
+    border-radius: var(--radius-md);
+    position: relative;
+}
+
+.step-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-amber);
+    font-family: var(--font-heading);
+    margin-bottom: 14px;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 22, 19, 0.88);
+    backdrop-filter: blur(12px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-amber);
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 680px;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: rgba(0, 0, 0, 0.06);
+    border: none;
+    color: var(--text-dark);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-dark);
+    color: #7A8890;
+    padding: 60px 24px 30px;
+}
+
+@media (max-width: 1024px) {
+    .firearms-grid { grid-template-columns: repeat(2, 1fr); }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .guide-steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    .firearms-grid { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .guide-steps-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 2.6rem; }
+    .nav-links { display: none; }
+}

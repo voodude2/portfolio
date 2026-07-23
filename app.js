@@ -5,6 +5,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
+        hunting: {
+            title: "Apex Hunter - Premium Hunting & Firearms Outfitter",
+            desc: "A tactical multi-page web application for a licensed hunting equipment outfitter. Features a dedicated Firearms Catalog page (catalog.html), caliber and optics filter, specification modal, and step-by-step licensing guide.",
+            features: [
+                "🎯 Multi-page architecture (Main Store index.html & Firearms Catalog catalog.html)",
+                "🔍 Dual Filter Engine (Category filter & Caliber selector: .308, 6.5 Creedmoor, 12G)",
+                "📋 Interactive Firearms Specification Modal (Weight, barrel length, magazine, range)",
+                "🌲 Tactical Forest Green & Bronze Amber Design System"
+            ],
+            link: "./page 5/index.html"
+        },
         pet: {
             title: "Pawfect Haven - Luxury Pet Shop & Care Hub",
             desc: "A vibrant, warm pet store and spa booking web application. Features an organic product catalog, interactive shopping cart drawer, grooming spa appointment cost calculator, and pet adoption matching tools.",

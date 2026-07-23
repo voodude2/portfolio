@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Hunter - Premium Hunting Equipment & Firearms Outfitter</title>
+    <meta name="description" content="Apex Hunter is a licensed outfitter providing precision hunting rifles, shotguns, thermal optics, ammunition, and hunting gear.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-badge">
+                    <i class="fa-solid fa-crosshairs"></i>
+                </div>
+                <div>
+                    <div class="brand-title">APEX <span class="amber-text">HUNTER</span></div>
+                    <div class="brand-subtitle">Firearms & Hunting Outfitter</div>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="catalog.html">Firearms Catalog</a></li>
+                    <li><a href="#optics">Optics & Scopes</a></li>
+                    <li><a href="#guide">Licensing Guide</a></li>
+                    <li><a href="../index.html" style="color: var(--accent-amber);"><i class="fa-solid fa-arrow-left"></i> Portfolio</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <a href="catalog.html" class="btn-amber">
+                    <i class="fa-solid fa-gun"></i> Open Catalog
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div>
+                    <div class="hero-tag">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>FFL Licensed Dealer • Premium Craftsmanship</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Precision Firearms for the <span class="amber-text">Modern Hunter</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Discover top-tier hunting rifles, tactical shotguns, thermal optics, and long-range ammunition crafted for reliability in extreme wilderness environments.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="catalog.html" class="btn-amber">
+                            <i class="fa-solid fa-crosshairs"></i> Firearms Catalog
+                        </a>
+                        <a href="#guide" class="btn-forest">
+                            <i class="fa-solid fa-file-contract"></i> License Guide
+                        </a>
+                    </div>
+
+                    <div class="hero-specs-row">
+                        <div>
+                            <div class="hero-spec-num">100%</div>
+                            <div class="hero-spec-label">FFL Compliant</div>
+                        </div>
+                        <div>
+                            <div class="hero-spec-num">0.5 MOA</div>
+                            <div class="hero-spec-label">Guaranteed Accuracy</div>
+                        </div>
+                        <div>
+                            <div class="hero-spec-num">10-Year</div>
+                            <div class="hero-spec-label">Factory Warranty</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual-card">
+                    <img src="./assets/images/hero.jpg" alt="Precision Hunting Rifle in Forest">
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Grid Section -->
+        <section class="categories-section">
+            <div class="cat-grid">
+                <a href="catalog.html?cat=rifle" class="cat-card">
+                    <div class="cat-icon-box"><i class="fa-solid fa-gun"></i></div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.05rem;">Bolt Action Rifles</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">.308 Win, 6.5 Creedmoor</div>
+                    </div>
+                </a>
+                <a href="catalog.html?cat=shotgun" class="cat-card">
+                    <div class="cat-icon-box"><i class="fa-solid fa-shield-cat"></i></div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.05rem;">Hunting Shotguns</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">12 Gauge & 20 Gauge</div>
+                    </div>
+                </a>
+                <a href="catalog.html?cat=optics" class="cat-card">
+                    <div class="cat-icon-box"><i class="fa-solid fa-eye"></i></div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.05rem;">Thermal Optics</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">Night Vision Scopes</div>
+                    </div>
+                </a>
+                <a href="catalog.html?cat=ammo" class="cat-card">
+                    <div class="cat-icon-box"><i class="fa-solid fa-box"></i></div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 1.05rem;">Ammunition & Gear</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">Match Grade Rounds</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Firearms Section -->
+        <section class="featured-section">
+            <div class="section-header">
+                <span class="section-tag">TOP PERFORMING GEAR</span>
+                <h2 class="section-title">Featured <span class="amber-text">Firearms</span></h2>
+                <p style="color: var(--text-muted);">Selected for exceptional accuracy, durable synthetic stocks, and smooth action</p>
+            </div>
+
+            <div class="firearms-grid">
+
+                <!-- Rifle 1 -->
+                <div class="firearm-card">
+                    <img src="./assets/images/hero.jpg" alt="Apex Timber 308 Win" class="firearm-thumb">
+                    <div class="firearm-body">
+                        <span class="firearm-category">Bolt Action Rifle</span>
+                        <h3 class="firearm-title">Apex Timber .308 Win</h3>
+                        <ul class="firearm-specs-list">
+                            <li><i class="fa-solid fa-check forest-text"></i> Caliber: .308 Winchester</li>
+                            <li><i class="fa-solid fa-check forest-text"></i> Barrel: 22" Muzzle Threaded</li>
+                            <li><i class="fa-solid fa-check forest-text"></i> Capacity: 5+1 Detachable Mag</li>
+                        </ul>
+                        <div class="firearm-bottom">
+                            <span class="firearm-price">$1,299.00</span>
+                            <a href="catalog.html" class="btn-forest" style="padding: 6px 14px; font-size: 0.8rem;">
+                                Specs <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optics 1 -->
+                <div class="firearm-card">
+                    <img src="./assets/images/optics.jpg" alt="Thermion Thermal Scope" class="firearm-thumb">
+                    <div class="firearm-body">
+                        <span class="firearm-category">Thermal Optics</span>
+                        <h3 class="firearm-title">Thermion 2 LRF XP50</h3>
+                        <ul class="firearm-specs-list">
+                            <li><i class="fa-solid fa-check forest-text"></i> Sensor: 640x480 Thermal</li>
+                            <li><i class="fa-solid fa-check forest-text"></i> Detection Range: 1,800m</li>
+                            <li><i class="fa-solid fa-check forest-text"></i> Integrated Laser Rangefinder</li>
+                        </ul>
+                        <div class="firearm-bottom">
+                            <span class="firearm-price">$3,490.00</span>
+                            <a href="catalog.html" class="btn-forest" style="padding: 6px 14px; font-size: 0.8rem;">
+                                Specs <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rifle 2 -->
+                <div class="firearm-card">
+                    <img src="./assets/images/rifle.jpg" alt="Creedmoor Mountain Hunter" class="firearm-thumb">
+                    <div class="firearm-body">
+                        <span class="firearm-category">Long Range Rifle</span>
+                        <h3 class="firearm-title">Creedmoor Hunter 6.5</h3>
+                        <ul class="firearm-specs-list">
+                            <li><i class="fa-solid fa-check forest-text"></i> Caliber: 6.5 Creedmoor</li>
+                            <li><i class="fa-solid fa-check forest-text"></i> Carbon Fiber Barrel</li>
+                            <li><i class="fa-solid fa-check forest-text"></i> Weight: Only 2.9 kg</li>
+                        </ul>
+                        <div class="firearm-bottom">
+                            <span class="firearm-price">$1,850.00</span>
+                            <a href="catalog.html" class="btn-forest" style="padding: 6px 14px; font-size: 0.8rem;">
+                                Specs <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="catalog.html" class="btn-amber">
+                    <i class="fa-solid fa-list-check"></i> View All Catalog Items (8+)
+                </a>
+            </div>
+        </section>
+
+        <!-- Firearms Licensing Guide Section -->
+        <section id="guide" class="guide-section">
+            <div class="guide-container">
+                <div class="section-header">
+                    <span class="hero-tag" style="background: rgba(200,141,67,0.2);"><i class="fa-solid fa-passport"></i> PERMIT PROCESS</span>
+                    <h2 class="section-title" style="color: #fff;">Firearms Acquisition <span class="amber-text">Guide</span></h2>
+                    <p style="color: #A0AAB0;">Simple step-by-step guide for licensed hunters & target shooters</p>
+                </div>
+
+                <div class="guide-steps-grid">
+                    <div class="step-card">
+                        <div class="step-num">01</div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Select Your Firearm</h3>
+                        <p style="font-size: 0.9rem; color: #A0AAB0;">Browse our catalog and choose your caliber based on your target game.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">02</div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Verify Permit & FFL</h3>
+                        <p style="font-size: 0.9rem; color: #A0AAB0;">Provide your valid hunting license or local FFL dealer transfer details.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">03</div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Custom Gunsmith Tuning</h3>
+                        <p style="font-size: 0.9rem; color: #A0AAB0;">Our certified master gunsmith inspects, mounts optics, and zero-tests your rifle.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">04</div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Secure Delivery & Pickup</h3>
+                        <p style="font-size: 0.9rem; color: #A0AAB0;">Pick up at your local licensed outfitter store with full documentation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1320px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-crosshairs" style="color: var(--accent-amber); font-size: 1.4rem;"></i>
+                <span style="font-weight: 800; color: #fff; font-size: 1.2rem;">APEX HUNTER</span>
+            </div>
+            <div>© 2026 Apex Hunter Outfitters. All rights reserved.</div>
+            <a href="../index.html" style="color: var(--accent-amber); text-decoration: none; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left"></i> Return to Developer Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <!-- App JS -->
+    <script src="app.js"></script>
+</body>
+</html>
