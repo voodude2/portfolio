@@ -61,12 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
             link: "./page 2/index.html"
         },
         saas: {
-            title: "NextGen SaaS Corporate Platform",
-            desc: "A corporate SaaS landing page template built with semantic HTML5 and clean CSS. Focuses on conversion rate optimization, pricing plan matrices, and lead generation.",
+            title: "Nexus - Enterprise Cloud OS & SaaS Platform",
+            desc: "An elite, dark-mode corporate SaaS platform designed for Fortune 500 companies. Features an advanced analytics dashboard, enterprise-grade cloud management, tier-based API pricing matrices, and a highly optimized lead generation funnel.",
             features: [
-                "💼 Multi-page architecture (Features, Pricing, About, Contact)",
-                "💳 Tiered pricing plans with monthly/annual toggle",
-                "📈 High-converting call-to-action sections and hero banners"
+                "☁️ Cloud OS Dashboard with real-time server metrics",
+                "💼 Multi-page enterprise architecture (Solutions, Pricing, Enterprise, Contact)",
+                "💳 Dynamic B2B pricing plans with scalable volume sliders",
+                "📈 High-converting interactive hero banners with glassmorphism UI"
             ],
             link: "./page one/index.html"
         }
