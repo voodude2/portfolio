@@ -1,29 +1,30 @@
 /* ==========================================================================
-   SNAKES OF GEORGIA - SPECIES DATABASE & INTERACTIVE LOGIC
+   SNAKES OF GEORGIA - AUTHENTIC HERPETOLOGY SPECIES DATABASE
+   All species & real photos verified scientifically for Georgia (Caucasus)
    ========================================================================== */
 
 const SNAKES_DATABASE = [
     {
         id: "macrovipera-lebetina",
-        latin: "Macrovipera lebetina",
+        latin: "Macrovipera lebetina obtusa",
         english: "Levantine Viper / Gorgan Viper",
         georgian: "გიურზა (Gyurza)",
         family: "Viperidae",
-        toxicity: "high", // high, mild, safe
+        toxicity: "high",
         toxicityLabel: "High Risk Venomous",
         length: "130 - 180 cm",
-        habitat: "Arid semi-deserts, rocky hills, scrublands, Kakheti & Kvemo Kartli",
+        habitat: "Arid semi-deserts, dry rocky hills, Kakheti (Vashlovani, Gareji) & Kvemo Kartli",
         diet: "Rodents, birds, lizards",
-        activity: "Nocturnal during summer, diurnal in spring/autumn",
+        activity: "Nocturnal during summer heat, diurnal in spring",
         conservation: "Red List of Georgia (Vulnerable)",
-        desc: "The largest and most dangerous venomous snake in Georgia. Recognizable by its thick body, triangular head, and sandy-grey coloration with darker transverse bars. Its bite produces cytotoxic and hemotoxic venom that requires immediate hospital treatment.",
+        desc: "Georgia's largest and most dangerous venomous snake. Heavy-bodied viper with grey-brown pattern and broad triangular head. Venom causes severe hemotoxic and cytotoxic tissue damage.",
         features: [
-            "⚠️ Potent cytotoxic/hemotoxic venom capable of severe tissue damage",
-            "⛰️ Commonly inhabits David Gareji, Vashlovani, and Kvemo Kartli hills",
-            "🛡️ Triangular head distinct from thin neck, vertical slit pupils",
-            "🏥 Requires Levantine Viper antivenom (available in Georgian emergency centers)"
+            "⚠️ Potent cytotoxic/hemotoxic venom requiring emergency medical intervention",
+            "⛰️ Inhabits dry arid hillsides of Kakheti and Kvemo Kartli",
+            "🛡️ Broad triangular head offset from narrow neck, vertical pupils",
+            "🏥 Specific antivenom available in Georgian emergency hospitals"
         ],
-        image: "https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/gyurza.jpg"
     },
     {
         id: "vipera-kaznakovi",
@@ -34,40 +35,40 @@ const SNAKES_DATABASE = [
         toxicity: "high",
         toxicityLabel: "High Risk Venomous",
         length: "55 - 70 cm",
-        habitat: "Humid Colchis rainforests, Adjara, Guria, Samegrelo, up to 1,500m",
+        habitat: "Humid Colchis rainforests, Adjara, Guria, Samegrelo, Mtirala National Park",
         diet: "Small mammals, lizards, amphibians",
         activity: "Diurnal",
         conservation: "IUCN Endangered / Red List of Georgia",
-        desc: "A striking, rare viper endemic to the Western Caucasus humid subtropical zone. Characterized by vibrant orange, reddish, or bright yellow lateral flanks with a dark zig-zag dorsal stripe. Highly protected species.",
+        desc: "A striking, rare viper endemic to the humid Western Caucasus. Known for its brilliant orange-red lateral flanks and broad black dorsal stripe.",
         features: [
-            "🌿 Endemic to the humid Colchis ecological zone of Western Georgia",
-            "🎨 Bright red/orange flank coloration with contrasting dark zigzag pattern",
-            "⚠️ Venom is strongly hemotoxic; medical assistance required if bitten",
-            "🛡️ Highly endangered due to habitat fragmentation"
+            "🌿 Endemic to the humid Colchis rainforest ecosystem of Western Georgia",
+            "🎨 Bright red/orange flank coloration with contrasting dark zigzag band",
+            "⚠️ Venom contains strongly hemotoxic components",
+            "🛡️ Highly endangered and strictly protected species"
         ],
-        image: "https://images.unsplash.com/photo-1574063413132-355dbfd83e0c?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/kaznakovi.jpg"
     },
     {
         id: "vipera-dinniki",
         latin: "Vipera dinniki",
-        english: "Dinnik's Viper / Subalpine Caucasian Viper",
+        english: "Dinnik's Viper / Caucasian Subalpine Viper",
         georgian: "დინიკის გველგესლა",
         family: "Viperidae",
         toxicity: "high",
         toxicityLabel: "High Risk Venomous",
         length: "45 - 55 cm",
-        habitat: "Subalpine meadows & rocky screes of High Caucasus (Svaneti, Kazbegi, Tusheti)",
-        diet: "Small rodents, alpine lizards",
+        habitat: "Subalpine meadows & rocky screes above 1,800m (Svaneti, Kazbegi, Tusheti)",
+        diet: "Alpine lizards, small rodents",
         activity: "Diurnal",
         conservation: "IUCN Vulnerable",
-        desc: "High-altitude mountain viper adapted to harsh subalpine climates above 1,800m elevation. Displays extreme color variation ranging from lemon yellow to olive green and melanistic black.",
+        desc: "High-altitude mountain viper adapted to harsh subalpine climates of the High Caucasus mountains. Exhibits variable coloration from greenish to melanistic black.",
         features: [
-            "🏔️ Alpine species found in Svaneti, Kazbegi, and Tusheti alpine meadows",
-            "❄️ Extremely cold-tolerant, active even during chilly mountain days",
-            "⚠️ Venom contains cytotoxic and neurotoxic components",
-            "🔍 Short, heavy-bodied viper with upturned snout"
+            "🏔️ Alpine species restricted to high Caucasus mountain ridges",
+            "❄️ Active during cool mountain sunshine hours",
+            "⚠️ Venomous bite causes local necrosis and systemic pain",
+            "🔍 Short, compact body with upturned snout scale"
         ],
-        image: "https://images.unsplash.com/photo-1548681528-6a5c45b66b42?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/dinniki.jpg"
     },
     {
         id: "vipera-renardi",
@@ -78,18 +79,18 @@ const SNAKES_DATABASE = [
         toxicity: "high",
         toxicityLabel: "High Risk Venomous",
         length: "40 - 60 cm",
-        habitat: "Dry steppes, grasslands, Shida Kartli & Samtskhe-Javakheti",
-        diet: "Insects (crickets/grasshoppers), lizards, rodents",
+        habitat: "Dry open steppes, grassy plains, Shida Kartli & Javakheti",
+        diet: "Orthopteran insects (crickets/grasshoppers), lizards, mice",
         activity: "Diurnal",
         conservation: "IUCN Vulnerable",
-        desc: "A small, greyish viper with a characteristic dark zig-zag line down its back, typical of European steppe environments. Primarily feeds on orthopteran insects and small lizards.",
+        desc: "A small greyish viper with a dark wavy zig-zag dorsal pattern, native to dry continental grasslands of Central and Southern Georgia.",
         features: [
-            "🌾 Inhabits continental steppe habitats of Eastern & Southern Georgia",
-            "🦗 Uniquely feeds heavily on large grasshoppers and crickets as juveniles",
-            "⚠️ Venomous bite causes localized pain and swelling",
-            "🔍 Narrow head with wavy dark dorsal pattern"
+            "🌾 Inhabits continental steppe habitats of Georgia",
+            "🦗 Juveniles feed heavily on grasshoppers and crickets",
+            "⚠️ Venomous; bite causes localized swelling and severe pain",
+            "🔍 Narrow triangular head with wavy dorsal stripe"
         ],
-        image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/renardi.jpg"
     },
     {
         id: "vipera-eriwanensis",
@@ -100,18 +101,40 @@ const SNAKES_DATABASE = [
         toxicity: "high",
         toxicityLabel: "High Risk Venomous",
         length: "35 - 50 cm",
-        habitat: "Dry mountain slopes & Javakheti plateau grasslands (2,000m+)",
-        diet: "Lizards, small mice, insects",
+        habitat: "Volcanic highlands & rocky slopes of Javakheti plateau (2,000m+)",
+        diet: "Lizards, small mice, crickets",
         activity: "Diurnal",
         conservation: "IUCN Vulnerable",
-        desc: "A high-elevation steppe viper closely related to Vipera renardi, native to the volcanic highlands of Southern Georgia (Javakheti) and neighboring Armenia.",
+        desc: "Small alpine steppe viper native to the volcanic plateau of Javakheti in Southern Georgia and neighboring Armenia.",
         features: [
-            "🌋 Native to the high volcanic plateaus of Javakheti",
-            "📏 Smallest viper species in Georgia (rarely exceeds 50cm)",
-            "⚠️ Mild to moderate envenomation risk to humans",
-            "🛡️ Protected species due to overgrazing of mountain habitats"
+            "🌋 Restricted to high altitude volcanic steppes of Southern Georgia",
+            "📏 Smallest viper species native to Georgia",
+            "⚠️ Venomous bite requires medical evaluation",
+            "🛡️ Threatened by habitat degradation from overgrazing"
         ],
-        image: "https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/eriwanensis.jpg"
+    },
+    {
+        id: "vipera-ammodytes",
+        latin: "Vipera ammodytes",
+        english: "Horned Viper / Nose-horned Viper",
+        georgian: "ცხვირრქოსანი გველგესლა (რინქოფი)",
+        family: "Viperidae",
+        toxicity: "high",
+        toxicityLabel: "High Risk Venomous",
+        length: "60 - 90 cm",
+        habitat: "Dry rocky hillsides, extreme Southeastern Georgia",
+        diet: "Small mammals, birds, lizards",
+        activity: "Diurnal / Crepuscular",
+        conservation: "Red List of Georgia",
+        desc: "Famous for the soft fleshy 'horn' on the tip of its snout. Possesses long fangs and high venom yield. Extremely rare in Georgia.",
+        features: [
+            "🦏 Distinctive fleshy horn scale on snout tip",
+            "⚠️ High venom toxicity and yield",
+            "⛰️ Found on sunny rocky slopes and dry gorges",
+            "🛡️ Strictly protected rare viper in Georgia"
+        ],
+        image: "assets/images/ammodytes.jpg"
     },
     {
         id: "malpolon-insignitus",
@@ -122,18 +145,18 @@ const SNAKES_DATABASE = [
         toxicity: "mild",
         toxicityLabel: "Mildly Venomous (Rear-fanged)",
         length: "140 - 200 cm",
-        habitat: "Arid hillsides, semi-deserts, scrub, Vashlovani & Kakheti",
+        habitat: "Arid hillsides, semi-deserts, Vashlovani & Kakheti scrub",
         diet: "Lizards, rodents, other snakes",
         activity: "Diurnal",
         conservation: "Least Concern",
-        desc: "A large, fast, impressive snake with prominent brow ridges giving it a fierce 'expression'. Rear-fanged venom is harmless to humans unless bitten deep inside the mouth.",
+        desc: "Large, fast-moving snake with prominent brow ridges giving it an intense expression. Rear-fanged grooved teeth deliver mild venom harmless to humans.",
         features: [
-            "⚡ Extremely fast-moving diurnal hunter in semi-deserts",
-            "👁️ Distinctive deep-set eyes with prominent supraocular scales ('prominent brow')",
-            "🧪 Rear-fanged grooved teeth in back of jaw; harmless to humans",
-            "🐍 Often raises front body like a cobra when cornered"
+            "⚡ Extremely fast diurnal hunter across semi-deserts",
+            "👁️ Deep-set eyes with prominent brow ridges",
+            "🧪 Grooved rear fangs in back of jaw; harmless to humans",
+            "🐍 Often raises front of body like a cobra when cornered"
         ],
-        image: "https://images.unsplash.com/photo-1551717709-6bc256e29ff2?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/montpellier.jpg"
     },
     {
         id: "telescopus-fallax",
@@ -144,18 +167,18 @@ const SNAKES_DATABASE = [
         toxicity: "mild",
         toxicityLabel: "Mildly Venomous (Rear-fanged)",
         length: "60 - 90 cm",
-        habitat: "Rocky hills, stone walls, old ruins, Tbilisi & Kakheti",
+        habitat: "Rocky outcrops, stone ruins, old walls in Tbilisi & Kakheti",
         diet: "Lizards, geckos",
         activity: "Nocturnal",
         conservation: "Least Concern",
-        desc: "A slender nocturnal snake named for its vertical cat-like pupils. Specialized in hunting sleeping lizards and geckos at night on sun-warmed rocks.",
+        desc: "Slender nocturnal snake with vertical cat-like pupils. Specialized in hunting sleeping geckos and wall lizards on warm stones at night.",
         features: [
-            "🐱 Vertical slit pupils like a cat",
-            "🌙 Strictly nocturnal, hunts sleeping wall lizards on stone structures",
-            "🧪 Rear-fanged venom incapacitates small lizards quickly",
-            "🏢 Frequently encountered around rocky heritage ruins in Tbilisi"
+            "🐱 Vertical slit cat pupils",
+            "🌙 Strictly nocturnal rock-climber",
+            "🧪 Mild rear-fanged venom immobilizes small lizards",
+            "🏢 Common around ancient stone fortresses in Georgia"
         ],
-        image: "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/cat_snake.jpg"
     },
     {
         id: "natrix-natrix",
@@ -167,17 +190,17 @@ const SNAKES_DATABASE = [
         toxicityLabel: "Harmless (Non-venomous)",
         length: "90 - 130 cm",
         habitat: "Rivers, lakes, marshes, damp woodlands throughout Georgia",
-        diet: "Amphibians (frogs/toads), fish",
+        diet: "Amphibians (frogs, toads), small fish",
         activity: "Diurnal",
         conservation: "Least Concern",
-        desc: "Georgia's most common non-venomous snake. Easily identified by bright yellow, orange, or white collar marks behind its head. Excellent swimmer that feeds on frogs.",
+        desc: "Georgia's most ubiquitous harmless snake. Identified by bright yellow or orange collar patches behind its head. Expert swimmer.",
         features: [
-            "🟡 Distinctive yellow/orange collar patches behind the head",
-            "🏊 Superb swimmer, frequents rivers, lakes, and garden ponds",
-            "🛡️ Completely harmless to humans; feigns death (thanatosis) if captured",
-            "🐸 Feeds almost exclusively on amphibians"
+            "🟡 Bright yellow or orange neck collar patches",
+            "🏊 Excellent swimmer in freshwater rivers and lakes",
+            "🛡️ 100% harmless; feigns death (thanatosis) when threatened",
+            "🐸 Vital predator controlling frog populations"
         ],
-        image: "https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/grass_snake.jpg"
     },
     {
         id: "natrix-tessellata",
@@ -188,18 +211,18 @@ const SNAKES_DATABASE = [
         toxicity: "safe",
         toxicityLabel: "Harmless (Non-venomous)",
         length: "80 - 110 cm",
-        habitat: "Rivers, reservoirs, Black Sea coastal estuaries",
+        habitat: "Rivers, reservoirs, Black Sea coastal river mouths",
         diet: "Fish",
         activity: "Diurnal",
         conservation: "Least Concern",
-        desc: "A semi-aquatic harmless snake that spends most of its life in water. Features a checkerboard 'dice' pattern of dark spots on an olive or grey body.",
+        desc: "Semi-aquatic non-venomous snake with a dark checkerboard pattern. Spends long periods diving underwater hunting small fish.",
         features: [
-            "🐟 Highly specialized fish hunter, capable of diving under water for 30+ minutes",
-            "🎲 Checkerboard spot pattern along dorsal scales",
-            "🛡️ Completely non-venomous and gentle",
-            "🌊 Abundant along the Mtkvari river and Black Sea coast"
+            "🐟 Specialized aquatic fish hunter",
+            "🎲 Checkerboard spot pattern on dorsal scales",
+            "🛡️ Completely harmless and gentle",
+            "🌊 Abundant along Mtkvari river and Georgian coast"
         ],
-        image: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/dice_snake.jpg"
     },
     {
         id: "zamenis-longissimus",
@@ -210,18 +233,18 @@ const SNAKES_DATABASE = [
         toxicity: "safe",
         toxicityLabel: "Harmless (Non-venomous)",
         length: "140 - 200 cm",
-        habitat: "Deciduous forests, overgrown ruins, Borjomi & Imereti",
+        habitat: "Deciduous mountain forests, Borjomi, Imereti & Racha",
         diet: "Rodents, birds",
         activity: "Diurnal",
         conservation: "Least Concern",
-        desc: "An elegant, long, smooth-scaled snake that is an adept climber. Famous historically as the symbol of medicine (Rod of Aesculapius).",
+        desc: "Elegant, long smooth-scaled snake that excels at climbing trees. Historically famous as the classical Rod of Aesculapius medical symbol.",
         features: [
-            "⚕️ Ancient symbol of medicine and healing",
-            "🌳 Exceptional tree climber, often found in high forest canopies",
-            "🛡️ Non-venomous constrictor, very calm temperament",
-            "✨ Uniform olive-brown coloration with fine white spots on scales"
+            "⚕️ Classical symbol of medicine and healing",
+            "🌳 Exceptional forest canopy climber",
+            "🛡️ Non-venomous gentle constrictor",
+            "✨ Smooth olive-brown scales with delicate light flecks"
         ],
-        image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/aesculapian.jpg"
     },
     {
         id: "dolichophis-caspius",
@@ -232,18 +255,18 @@ const SNAKES_DATABASE = [
         toxicity: "safe",
         toxicityLabel: "Harmless (Non-venomous)",
         length: "160 - 220 cm",
-        habitat: "Open scrublands, grassy plains, Eastern Georgia",
+        habitat: "Open grassy steppes, dry scrub, Eastern Georgia",
         diet: "Rodents, lizards, birds",
         activity: "Diurnal",
         conservation: "Least Concern",
-        desc: "One of Europe and Georgia's largest snakes. Non-venomous but famously feisty and territorial — will stand its ground, hiss loudly, and bite if harassed.",
+        desc: "One of Georgia's largest non-venomous snakes. Fast-moving and feisty — will hiss and perform bluff strikes if cornered, but non-venomous.",
         features: [
-            "📏 Longest non-venomous snake species in Georgia (up to 2.2 meters)",
-            "⚡ Lightning-fast speed across open grasslands",
-            "🛡️ Non-venomous despite aggressive threat displays",
-            "🌾 Crucial predator controlling agricultural rodent pests"
+            "📏 Reaches up to 2.2 meters in length",
+            "⚡ Lightning-fast runner across open terrain",
+            "🛡️ Non-venomous despite loud threat displays",
+            "🌾 Important natural pest control in farmland"
         ],
-        image: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/caspian.jpg"
     },
     {
         id: "elaphe-sauromates",
@@ -254,18 +277,84 @@ const SNAKES_DATABASE = [
         toxicity: "safe",
         toxicityLabel: "Harmless (Non-venomous)",
         length: "130 - 180 cm",
-        habitat: "Dry open woodlands, steppes, Kakheti vineyards",
+        habitat: "Dry open woodlands, Kakheti vineyards, Alazani Valley",
         diet: "Rodents, eggs, birds",
         activity: "Diurnal",
         conservation: "Least Concern",
-        desc: "A heavy-bodied non-venomous rat snake with striking blotched markings. Constricts prey and frequently raids rodent burrows in agricultural lands.",
+        desc: "A heavy non-venomous rat snake with yellow-brown body and dark square blotches. Constricts prey and raids rodent burrows.",
         features: [
-            "🎨 Beautiful yellow-brown pattern with dark square dorsal blotches",
-            "🥚 Capable of swallowing whole bird eggs intact",
-            "🛡️ Non-venomous constrictor, beneficial for farmers",
-            "🌿 Inhabits Kakheti wine regions and Alazani valley"
+            "🎨 Distinctive dark blotch pattern on yellowish background",
+            "🥚 Swallows bird eggs whole",
+            "🛡️ Beneficial non-venomous agricultural ally",
+            "🌿 Widespread in Kakheti wine region"
         ],
-        image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/blotched.jpg"
+    },
+    {
+        id: "hemorrhois-nummifer",
+        latin: "Hemorrhois nummifer",
+        english: "Coin-marked Snake / Asian Racer",
+        georgian: "მონეტისებრი მცურავი",
+        family: "Colubridae",
+        toxicity: "safe",
+        toxicityLabel: "Harmless (Non-venomous)",
+        length: "80 - 120 cm",
+        habitat: "Dry rocky canyons & arid hillsides of Southern Georgia",
+        diet: "Lizards, small rodents",
+        activity: "Diurnal",
+        conservation: "Least Concern",
+        desc: "Slender non-venomous racer with round coin-like dark spots along its back. Frequently mimics viper threat postures when cornered.",
+        features: [
+            "🪙 Distinctive coin-shaped dorsal spots",
+            "🎭 Mimics viper defensive behavior when threatened",
+            "🛡️ Completely non-venomous",
+            "⛰️ Inhabits dry rocky ravines"
+        ],
+        image: "assets/images/nummifer.jpg"
+    },
+    {
+        id: "platyceps-najadum",
+        latin: "Platyceps najadum",
+        english: "Dahl's Whipsnake / Slender Whipsnake",
+        georgian: "წითელმუცელა მცურავი (წვრილი მცურავი)",
+        family: "Colubridae",
+        toxicity: "safe",
+        toxicityLabel: "Harmless (Non-venomous)",
+        length: "100 - 140 cm",
+        habitat: "Sun-warmed rocky slopes & dry scrublands",
+        diet: "Lizards",
+        activity: "Diurnal",
+        conservation: "Least Concern",
+        desc: "An exceptionally slender, elegant snake with a olive-grey head and neck adorned with dark black spots bordered in white.",
+        features: [
+            "🥢 Extremely slender pencil-like neck and body",
+            "🎨 Black neck spots with white outer rings",
+            "⚡ Incredibly agile and fast across rocks",
+            "🛡️ Completely harmless lizard specialist"
+        ],
+        image: "assets/images/najadum.jpg"
+    },
+    {
+        id: "eirenis-collaris",
+        latin: "Eirenis collaris",
+        english: "Collared Dwarf Snake",
+        georgian: "საყელოიანი ეირენისი",
+        family: "Colubridae",
+        toxicity: "safe",
+        toxicityLabel: "Harmless (Non-venomous)",
+        length: "25 - 40 cm",
+        habitat: "Dry rocky hillsides under stones, Kakheti & Kvemo Kartli",
+        diet: "Insects, spiders, scorpions",
+        activity: "Crepuscular / Secretive",
+        conservation: "Least Concern",
+        desc: "A small harmless snake with a prominent black collar band on its neck. Secretive species hiding under flat rocks.",
+        features: [
+            "🖤 Dark collar band behind head",
+            "📏 Small size, under 40 cm long",
+            "🦂 Feeds on scorpions and insects under stones",
+            "🛡️ Completely harmless and docile"
+        ],
+        image: "assets/images/collaris.jpg"
     },
     {
         id: "eryx-jaculus",
@@ -280,41 +369,40 @@ const SNAKES_DATABASE = [
         diet: "Small rodents, lizards",
         activity: "Nocturnal / Burrowing",
         conservation: "Red List of Georgia",
-        desc: "Georgia's only native boa species! A burrowing constrictor with small eyes and a blunt tail designed for pushing through sand and loose earth.",
+        desc: "Georgia's single native Boa species! A thick burrowing constrictor with eyes set high on its head and a blunt tail for pushing through sand.",
         features: [
-            "🏺 Georgia's single true Boa species (Boidae family)",
-            "⏳ Burrows underneath sand and loose soil to ambush prey",
-            "🛡️ Non-venomous constrictor, completely harmless",
-            " Protected rare species in Kakheti semi-deserts"
+            "🏺 Georgia's only true native Boa species",
+            "⏳ Burrows beneath loose soil and sand",
+            "🛡️ Non-venomous constrictor, gentle temperament",
+            " Highly rare and protected in Kakheti semi-deserts"
         ],
-        image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/sand_boa.jpg"
     },
     {
         id: "typhlops-vermicularis",
-        latin: "Typhlops vermicularis",
+        latin: "Xerotyphlops vermicularis",
         english: "European Blind Snake / Worm Snake",
         georgian: "ჭიაგველა (Chiagvela)",
         family: "Typhlopidae",
         toxicity: "safe",
         toxicityLabel: "Harmless (Non-venomous)",
         length: "20 - 35 cm",
-        habitat: "Subterranean burrows under stones, Eastern Georgia",
+        habitat: "Subterranean burrows under flat stones, Eastern Georgia",
         diet: "Ants, termites, pupae",
         activity: "Subterranean",
         conservation: "Least Concern",
-        desc: "A tiny, harmless subterranean snake resembling a shiny pinkish earthworm. Possesses vestigial eyes covered by scales and feeds on ant nests.",
+        desc: "A tiny subterranean snake resembling a shiny pinkish earthworm. Lacks functional teeth and feeds exclusively on ant colonies.",
         features: [
-            "🪱 Resembles a large pink earthworm; subterranean burrower",
-            "🐜 Specialized feeder on ants, ant larvae, and termites",
-            "🛡️ 100% harmless, lacks functional teeth for biting humans",
-            "🪨 Found beneath flat stones on warm dry hillsides"
+            "🪱 Resembles a large pink earthworm",
+            "🐜 Specialized ant and termite nest feeder",
+            "🛡️ 100% harmless, cannot bite humans",
+            "🪨 Found beneath warm stones on dry hills"
         ],
-        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+        image: "assets/images/blind_snake.jpg"
     }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Check which page we are on
     if (document.getElementById('species-container')) {
         initSpeciesPage();
     }
@@ -347,7 +435,7 @@ function initSpeciesPage() {
         });
 
         if (countDisplay) {
-            countDisplay.innerText = `Showing ${filtered.length} of ${SNAKES_DATABASE.length} species`;
+            countDisplay.innerText = `Showing ${filtered.length} of ${SNAKES_DATABASE.length} native Georgian species`;
         }
 
         if (filtered.length === 0) {
@@ -355,7 +443,7 @@ function initSpeciesPage() {
                 <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: #fff; border-radius: 14px;">
                     <i class="fa-solid fa-ghost" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 16px;"></i>
                     <h3>No species found</h3>
-                    <p style="color: var(--text-muted);">Try adjusting your search criteria or filters.</p>
+                    <p style="color: var(--text-muted);">Try adjusting your search query or filter settings.</p>
                 </div>
             `;
             return;
@@ -369,7 +457,7 @@ function initSpeciesPage() {
             return `
                 <div class="snake-card">
                     <div class="snake-img-wrapper">
-                        <img src="${snake.image}" alt="${snake.english}" onerror="this.src='https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=800&q=80'">
+                        <img src="${snake.image}" alt="${snake.english}" loading="lazy">
                         <span class="badge-toxic ${badgeClass}" style="position: absolute; top: 16px; right: 16px;">
                             ${snake.toxicity === 'high' ? '⚠️ ' : ''}${snake.toxicityLabel}
                         </span>
@@ -381,8 +469,8 @@ function initSpeciesPage() {
                             🇬🇪 ${snake.georgian}
                         </div>
                         <div class="snake-meta">
-                            <span class="meta-item"><i class="fa-solid fa-[#0D2818] fa-ruler-horizontal"></i> ${snake.length}</span>
-                            <span class="meta-item"><i class="fa-solid fa-tree"></i> ${snake.family}</span>
+                            <span class="meta-item"><i class="fa-solid fa-ruler-horizontal"></i> ${snake.length}</span>
+                            <span class="meta-item"><i class="fa-solid fa-dna"></i> ${snake.family}</span>
                         </div>
                         <p class="snake-desc">${snake.desc}</p>
                         <button class="btn-details" onclick="openSnakeModal('${snake.id}')">
@@ -394,7 +482,6 @@ function initSpeciesPage() {
         }).join('');
     }
 
-    // Filter Buttons Listener
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
@@ -404,7 +491,6 @@ function initSpeciesPage() {
         });
     });
 
-    // Search Input Listener
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             searchQuery = e.target.value.toLowerCase().trim();
@@ -439,8 +525,8 @@ function openSnakeModal(id) {
                     </div>
                 </div>
 
-                <div style="margin-bottom: 24px; border-radius: 12px; overflow: hidden; max-height: 320px;">
-                    <img src="${snake.image}" alt="${snake.english}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1531386151447-fd76ad50012f?auto=format&fit=crop&w=800&q=80'">
+                <div style="margin-bottom: 24px; border-radius: 12px; overflow: hidden; max-height: 360px;">
+                    <img src="${snake.image}" alt="${snake.english}" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; background: #F8F6F0; padding: 20px; border-radius: 12px;">
@@ -496,22 +582,22 @@ function initQuizPage() {
 
     const questions = [
         {
-            q: "Which viper species in Georgia is the largest and carries the most potent venom?",
-            options: ["A) Vipera kaznakovi", "B) Macrovipera lebetina (Levantine Viper)", "C) Natrix natrix", "D) Coronella austriaca"],
+            q: "Which viper species in Georgia is the largest and carries the most dangerous hemotoxic venom?",
+            options: ["A) Vipera kaznakovi", "B) Macrovipera lebetina obtusa (Levantine Viper / Gyurza)", "C) Natrix natrix", "D) Coronella austriaca"],
             correct: 1,
-            exp: "Macrovipera lebetina (Gyurza) is Georgia's largest and most dangerous venomous snake, reaching up to 1.8 meters in Kakheti and Kvemo Kartli."
+            exp: "Macrovipera lebetina obtusa (Gyurza) is Georgia's largest and most dangerous venomous snake, inhabiting dry Kakheti and Kvemo Kartli hills."
         },
         {
-            q: "How can you distinguish a harmless Water Snake (Natrix) from a Viper?",
-            options: ["A) Natrix has round pupils; Vipers have vertical slit pupils", "B) Vipers are bright green", "C) Water snakes always rattle their tail", "D) Vipers have no scales"],
+            q: "How can you distinguish a harmless Grass Snake (Natrix natrix) from a Caucasian Viper?",
+            options: ["A) Grass Snake has round pupils and yellow neck collar patches", "B) Vipers have round pupils and green spots", "C) Water snakes always rattle their tail", "D) Vipers have no scales"],
             correct: 0,
-            exp: "Colubrids like Natrix have round pupils and slender heads, whereas Caucasian Vipers have vertical slit pupils and wide triangular heads."
+            exp: "Grass Snakes have round pupils and distinctive yellow/orange collar patches behind their head, unlike the vertical pupils and broad triangular head of vipers."
         },
         {
             q: "What is the FIRST recommended action if someone is bitten by a Levantine Viper in Georgia?",
-            options: ["A) Cut the bite mark and suck the venom", "B) Apply a tight tourniquet", "C) Keep the victim calm, immobilize the limb, and call 112 for hospital antivenom", "D) Apply ice directly on the wound"],
+            options: ["A) Cut the bite mark and suck the venom", "B) Apply a tight tourniquet", "C) Keep victim calm, immobilize the limb, and call 112 emergency services immediately", "D) Apply ice directly on the wound"],
             correct: 2,
-            exp: "Never cut, suck, or apply tourniquets. Immobilize the affected limb and seek emergency hospital care (112 emergency hotline) immediately."
+            exp: "Never cut, suck, or apply tourniquets. Immobilize the limb below heart level and call Georgia's emergency services (112) for hospital antivenom."
         }
     ];
 
