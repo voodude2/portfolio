@@ -47,15 +47,6 @@ let scene, camera, renderer, controls;
 let pcCaseGroup, gpuGroup, ramGroup, coolerGroup, fanBlades = [];
 let ambientLight, mainLight, rimLight;
 
-// Load realistic textures for procedural fallbacks
-const textureLoader = new THREE.TextureLoader();
-const moboTexture = textureLoader.load('assets/textures/mobo.jpg');
-const gpuTexture = textureLoader.load('assets/textures/gpu.jpg');
-const ramTexture = textureLoader.load('assets/textures/ram.jpg');
-
-moboTexture.colorSpace = THREE.SRGBColorSpace;
-gpuTexture.colorSpace = THREE.SRGBColorSpace;
-ramTexture.colorSpace = THREE.SRGBColorSpace;
 let casePointLight1, casePointLight2;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -245,107 +236,161 @@ function buildPhotorealisticPC() {
 }
 
 function buildFallbackCase() {
-    // --- CASE MATERIALS with real PBR textures ---
-    const metalColorTex = textureLoader.load('assets/textures/Metal035/3DApple001_HQ-1K-JPG_Color.jpg');
-    const metalNormalTex = textureLoader.load('assets/textures/Metal035/3DApple001_HQ-1K-JPG_NormalGL.jpg');
-    const metalAOTex = textureLoader.load('assets/textures/Metal035/3DApple001_HQ-1K-JPG_AmbientOcclusion.jpg');
-    metalColorTex.colorSpace = THREE.SRGBColorSpace;
-
-    const aluminumMat = new THREE.MeshPhysicalMaterial({
-        map: metalColorTex, normalMap: metalNormalTex, aoMap: metalAOTex,
-        color: 0x1a1a2e, metalness: 1.0, roughness: 0.2, clearcoat: 0.15
+    // --- PURE 3D PROCEDURAL PBR MATERIALS ---
+    const chassisMat = new THREE.MeshPhysicalMaterial({
+        color: 0x111625, metalness: 0.9, roughness: 0.25, clearcoat: 0.2
     });
     const darkSteelMat = new THREE.MeshPhysicalMaterial({
-        map: metalColorTex, normalMap: metalNormalTex,
-        color: 0x0a0a1a, metalness: 0.95, roughness: 0.3
+        color: 0x090d16, metalness: 0.85, roughness: 0.35
     });
-    const pcbMat = new THREE.MeshPhysicalMaterial({ map: moboTexture, color: 0xcccccc, metalness: 0.3, roughness: 0.7, clearcoat: 0.1 });
-    const silverHeatsinkMat = new THREE.MeshPhysicalMaterial({ color: 0xd0d0d0, metalness: 1.0, roughness: 0.25, clearcoat: 0.3 });
+    const pcbMat = new THREE.MeshPhysicalMaterial({
+        color: 0x0c101c, metalness: 0.25, roughness: 0.65
+    });
+    const silverMetalMat = new THREE.MeshPhysicalMaterial({
+        color: 0xd8d8d8, metalness: 0.95, roughness: 0.15, clearcoat: 0.4
+    });
+    const goldMat = new THREE.MeshPhysicalMaterial({
+        color: 0xd4af37, metalness: 0.9, roughness: 0.2, clearcoat: 0.3
+    });
+    const darkAccentMat = new THREE.MeshPhysicalMaterial({
+        color: 0x1a2030, metalness: 0.8, roughness: 0.3
+    });
 
     const glassMat = new THREE.MeshPhysicalMaterial({
         color: 0xffffff, transparent: true, opacity: 0.12,
-        roughness: 0.0, metalness: 0.1, transmission: 0.95,
+        roughness: 0.0, metalness: 0.1, transmission: 0.92,
         ior: 1.5, thickness: 0.15, clearcoat: 1.0, clearcoatRoughness: 0.0
     });
 
-    // --- CASE FRAME (4 Corner Pillars) ---
-    const pillarGeo = new THREE.BoxGeometry(0.5, 13, 0.5);
-    const p1 = new THREE.Mesh(pillarGeo, aluminumMat); p1.position.set(-4.5, 0, -5.5); pcCaseGroup.add(p1);
-    const p2 = new THREE.Mesh(pillarGeo, aluminumMat); p2.position.set(4.5, 0, -5.5); pcCaseGroup.add(p2);
-    const p3 = new THREE.Mesh(pillarGeo, aluminumMat); p3.position.set(-4.5, 0, 5.5); pcCaseGroup.add(p3);
-    const p4 = new THREE.Mesh(pillarGeo, aluminumMat); p4.position.set(4.5, 0, 5.5); pcCaseGroup.add(p4);
+    // --- 1. CASE FRAME (Corner Pillars & Frame) ---
+    const pillarGeo = new THREE.BoxGeometry(0.45, 12.8, 0.45);
+    const p1 = new THREE.Mesh(pillarGeo, chassisMat); p1.position.set(-4.5, 0, -5.5); pcCaseGroup.add(p1);
+    const p2 = new THREE.Mesh(pillarGeo, chassisMat); p2.position.set(4.5, 0, -5.5); pcCaseGroup.add(p2);
+    const p3 = new THREE.Mesh(pillarGeo, chassisMat); p3.position.set(-4.5, 0, 5.5); pcCaseGroup.add(p3);
+    const p4 = new THREE.Mesh(pillarGeo, chassisMat); p4.position.set(4.5, 0, 5.5); pcCaseGroup.add(p4);
 
-    // Top & Bottom Plates
+    // Top & Bottom Aluminum Frame Plates
     const platGeo = new THREE.BoxGeometry(9.5, 0.4, 11.5);
-    const topPlate = new THREE.Mesh(platGeo, aluminumMat);
-    topPlate.position.set(0, 6.5, 0); pcCaseGroup.add(topPlate);
-    const botPlate = new THREE.Mesh(platGeo, aluminumMat);
-    botPlate.position.set(0, -6.5, 0); pcCaseGroup.add(botPlate);
+    const topPlate = new THREE.Mesh(platGeo, chassisMat);
+    topPlate.position.set(0, 6.4, 0); pcCaseGroup.add(topPlate);
+    const botPlate = new THREE.Mesh(platGeo, chassisMat);
+    botPlate.position.set(0, -6.4, 0); pcCaseGroup.add(botPlate);
 
-    // --- SOLID SIDE PANELS (hide internals from outside) ---
-    // Back panel (behind motherboard)
-    const backPanelGeo = new THREE.BoxGeometry(9.2, 12.5, 0.15);
-    const backPanel = new THREE.Mesh(backPanelGeo, darkSteelMat);
+    // --- 2. SOLID CASE PANELS ---
+    // Back solid steel wall (behind motherboard)
+    const backPanel = new THREE.Mesh(new THREE.BoxGeometry(9.2, 12.4, 0.15), darkSteelMat);
     backPanel.position.set(0, 0, -5.6); pcCaseGroup.add(backPanel);
 
-    // Right side panel (opposite glass)
-    const rightPanelGeo = new THREE.BoxGeometry(0.15, 12.5, 11);
-    const rightPanel = new THREE.Mesh(rightPanelGeo, darkSteelMat);
+    // Right side solid steel panel
+    const rightPanel = new THREE.Mesh(new THREE.BoxGeometry(0.15, 12.4, 11), darkSteelMat);
     rightPanel.position.set(4.6, 0, 0); pcCaseGroup.add(rightPanel);
 
-    // Front panel (solid + mesh overlay)
-    const frontPanel = new THREE.Mesh(new THREE.BoxGeometry(0.15, 12.5, 11), darkSteelMat);
+    // Front panel (solid steel + ventilation mesh overlay)
+    const frontPanel = new THREE.Mesh(new THREE.BoxGeometry(0.15, 12.4, 11), darkSteelMat);
     frontPanel.position.set(-4.6, 0, 0); pcCaseGroup.add(frontPanel);
     const frontMesh = new THREE.Mesh(
-        new THREE.BoxGeometry(0.08, 12, 10.5),
-        new THREE.MeshStandardMaterial({ color: 0x0a0f1d, metalness: 0.9, wireframe: true })
+        new THREE.BoxGeometry(0.08, 11.8, 10.5),
+        new THREE.MeshStandardMaterial({ color: 0x060911, metalness: 0.9, wireframe: true })
     );
     frontMesh.position.set(-4.45, 0, 0); pcCaseGroup.add(frontMesh);
 
-    // Left side: Tempered Glass (viewer-facing)
-    const glassSide = new THREE.Mesh(new THREE.BoxGeometry(9.2, 12.5, 0.1), glassMat);
+    // Viewer-Facing Left Side: Tempered Glass Panel
+    const glassSide = new THREE.Mesh(new THREE.BoxGeometry(9.2, 12.4, 0.1), glassMat);
     glassSide.position.set(0, 0, 5.55); pcCaseGroup.add(glassSide);
 
-    // --- MOTHERBOARD ---
-    const mobo = new THREE.Mesh(new THREE.BoxGeometry(8, 10, 0.3), pcbMat);
-    mobo.position.set(0, 0.8, -5.0); pcCaseGroup.add(mobo);
+    // --- 3. HIGH-DETAIL 3D MOTHERBOARD (ATX Form Factor) ---
+    // Dark PCB Board Base
+    const moboBoard = new THREE.Mesh(new THREE.BoxGeometry(8.2, 10.5, 0.25), pcbMat);
+    moboBoard.position.set(0, 0.8, -5.0); pcCaseGroup.add(moboBoard);
 
-    // CPU Socket (golden pins + silver IHS)
-    const cpuMat = new THREE.MeshPhysicalMaterial({ map: moboTexture, color: 0xd4af37, metalness: 0.9, roughness: 0.15, clearcoat: 0.5 });
-    const cpu = new THREE.Mesh(new THREE.BoxGeometry(1.8, 1.8, 0.15), cpuMat);
-    cpu.position.set(-0.8, 2.8, -4.7); pcCaseGroup.add(cpu);
-    const ihs = new THREE.Mesh(new THREE.BoxGeometry(1.5, 1.5, 0.08),
-        new THREE.MeshPhysicalMaterial({ color: 0xc0c0c0, metalness: 1.0, roughness: 0.1, clearcoat: 0.8 }));
-    ihs.position.set(-0.8, 2.8, -4.55); pcCaseGroup.add(ihs);
+    // CPU Socket Area (Golden LGA Pins + Silver Metal Retention Bracket + Silver IHS Lid)
+    const socketBase = new THREE.Mesh(new THREE.BoxGeometry(2.0, 2.0, 0.1), goldMat);
+    socketBase.position.set(-0.8, 2.8, -4.8); pcCaseGroup.add(socketBase);
 
-    // VRM Heatsinks
-    const hs1 = new THREE.Mesh(new THREE.BoxGeometry(1.2, 3.5, 0.6), silverHeatsinkMat);
-    hs1.position.set(-2.8, 2.5, -4.55); pcCaseGroup.add(hs1);
-    const hs2 = new THREE.Mesh(new THREE.BoxGeometry(3, 1.2, 0.6), silverHeatsinkMat);
-    hs2.position.set(0, 4.8, -4.55); pcCaseGroup.add(hs2);
+    const cpuFrame = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2.2, 0.08), darkAccentMat);
+    cpuFrame.position.set(-0.8, 2.8, -4.85); pcCaseGroup.add(cpuFrame);
 
-    // M.2 SSD Heatsink
-    const m2 = new THREE.Mesh(new THREE.BoxGeometry(3.5, 0.5, 0.35), silverHeatsinkMat);
-    m2.position.set(0, -0.5, -4.6); pcCaseGroup.add(m2);
+    const ihsLid = new THREE.Mesh(new THREE.BoxGeometry(1.6, 1.6, 0.12), silverMetalMat);
+    ihsLid.position.set(-0.8, 2.8, -4.7); pcCaseGroup.add(ihsLid);
 
-    // PCIe Slot Rails
-    const pcieGeo = new THREE.BoxGeometry(6, 0.25, 0.4);
-    const pcie1 = new THREE.Mesh(pcieGeo, silverHeatsinkMat);
-    pcie1.position.set(0, -1.5, -4.6); pcCaseGroup.add(pcie1);
-    const pcie2 = new THREE.Mesh(pcieGeo, silverHeatsinkMat);
-    pcie2.position.set(0, -2.3, -4.6); pcCaseGroup.add(pcie2);
+    // VRM Heatsink Blocks (Top & Left of CPU)
+    const vrmTop = new THREE.Mesh(new THREE.BoxGeometry(3.6, 1.2, 0.5), silverMetalMat);
+    vrmTop.position.set(-0.2, 4.7, -4.65); pcCaseGroup.add(vrmTop);
 
-    // --- PSU Shroud (Bottom Compartment) ---
+    const vrmLeft = new THREE.Mesh(new THREE.BoxGeometry(1.2, 3.8, 0.5), darkAccentMat);
+    vrmLeft.position.set(-2.8, 2.3, -4.65); pcCaseGroup.add(vrmLeft);
+
+    // VRM RGB Accent Strip
+    const vrmRgb = new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.1, 0.1),
+        new THREE.MeshBasicMaterial({ color: 0x00f0ff }));
+    vrmRgb.position.set(-0.2, 4.05, -4.38); pcCaseGroup.add(vrmRgb);
+
+    // Chipset Heatsink Block (Bottom Right)
+    const chipsetHs = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2.2, 0.4), darkAccentMat);
+    chipsetHs.position.set(2.2, -1.8, -4.7); pcCaseGroup.add(chipsetHs);
+    const chipsetBadge = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.06, 0.3),
+        new THREE.MeshBasicMaterial({ color: 0x00f0ff }));
+    chipsetBadge.position.set(2.2, -1.8, -4.48); pcCaseGroup.add(chipsetBadge);
+
+    // 4 x DDR5 RAM Slots (Slots next to CPU)
+    for (let r = 0; r < 4; r++) {
+        const slotTrack = new THREE.Mesh(new THREE.BoxGeometry(0.12, 3.2, 0.25), darkAccentMat);
+        slotTrack.position.set(1.2 + (r * 0.5), 2.8, -4.75);
+        pcCaseGroup.add(slotTrack);
+
+        // Silver latch clips at top and bottom of each RAM slot
+        const clipTop = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.2, 0.3), silverMetalMat);
+        clipTop.position.set(1.2 + (r * 0.5), 4.3, -4.7);
+        pcCaseGroup.add(clipTop);
+        const clipBot = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.2, 0.3), silverMetalMat);
+        clipBot.position.set(1.2 + (r * 0.5), 1.3, -4.7);
+        pcCaseGroup.add(clipBot);
+    }
+
+    // 2 x M.2 NVMe SSD Armor Covers
+    const m2Armor1 = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.55, 0.25), silverMetalMat);
+    m2Armor1.position.set(-0.5, 0.8, -4.72); pcCaseGroup.add(m2Armor1);
+    const m2Armor2 = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.55, 0.25), darkAccentMat);
+    m2Armor2.position.set(-0.5, -2.8, -4.72); pcCaseGroup.add(m2Armor2);
+
+    // 3 x Steel-Shielded PCIe x16 Slots
+    for (let p = 0; p < 3; p++) {
+        const pcieSlot = new THREE.Mesh(new THREE.BoxGeometry(6.2, 0.25, 0.35), silverMetalMat);
+        pcieSlot.position.set(-0.5, -0.2 - (p * 1.2), -4.7);
+        pcCaseGroup.add(pcieSlot);
+    }
+
+    // Rows of 3D Solid Cylindrical Capacitors on Motherboard
+    const capGeo = new THREE.CylinderGeometry(0.12, 0.12, 0.3, 16);
+    for (let c = 0; c < 8; c++) {
+        const cap = new THREE.Mesh(capGeo, silverMetalMat);
+        cap.rotation.x = Math.PI / 2;
+        cap.position.set(-3.2 + (c * 0.3), 4.1, -4.7);
+        pcCaseGroup.add(cap);
+    }
+
+    // ATX 24-Pin Power Socket (Right edge)
+    const atxPower = new THREE.Mesh(new THREE.BoxGeometry(0.5, 2.2, 0.4), darkAccentMat);
+    atxPower.position.set(3.7, 2.5, -4.7); pcCaseGroup.add(atxPower);
+
+    // --- 4. PSU SHROUD (Bottom Power Supply Compartment) ---
     const psuBox = new THREE.Mesh(new THREE.BoxGeometry(8.8, 3.0, 10.5), darkSteelMat);
     psuBox.position.set(0, -5.0, 0); pcCaseGroup.add(psuBox);
-    const psuTop = new THREE.Mesh(new THREE.BoxGeometry(8.9, 0.15, 10.6), aluminumMat);
-    psuTop.position.set(0, -3.4, 0); pcCaseGroup.add(psuTop);
+
+    const psuTopPlate = new THREE.Mesh(new THREE.BoxGeometry(8.9, 0.15, 10.6), chassisMat);
+    psuTopPlate.position.set(0, -3.4, 0); pcCaseGroup.add(psuTopPlate);
+
+    // Glowing CyberForge Logo Bar on PSU Shroud Side
+    const psuLogoBar = new THREE.Mesh(new THREE.BoxGeometry(5.0, 0.3, 0.08),
+        new THREE.MeshBasicMaterial({ color: 0x00f0ff }));
+    psuLogoBar.position.set(0, -4.8, 5.3); pcCaseGroup.add(psuLogoBar);
 }
 
 function createPhotorealisticFans() {
-    const ringGeo = new THREE.TorusGeometry(1.4, 0.15, 16, 32);
+    const ringGeo = new THREE.TorusGeometry(1.3, 0.12, 16, 32);
     const ringMat = new THREE.MeshBasicMaterial({ color: 0x00f0ff });
 
+    // 3 Front Intake RGB Fans
     for (let i = 0; i < 3; i++) {
         const ring = new THREE.Mesh(ringGeo, ringMat);
         ring.rotation.y = Math.PI / 2;
@@ -353,8 +398,8 @@ function createPhotorealisticFans() {
         pcCaseGroup.add(ring);
 
         const bladeGroup = new THREE.Group();
-        const bladeGeo = new THREE.BoxGeometry(0.05, 1.2, 0.3);
-        const bladeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.7 });
+        const bladeGeo = new THREE.BoxGeometry(0.05, 1.1, 0.28);
+        const bladeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.75 });
 
         for (let b = 0; b < 7; b++) {
             const blade = new THREE.Mesh(bladeGeo, bladeMat);
@@ -371,50 +416,58 @@ function createPhotorealisticFans() {
 function createDetailedGPUMesh() {
     if (gpuGroup) pcCaseGroup.remove(gpuGroup);
     gpuGroup = new THREE.Group();
-    gpuGroup.position.set(0, -1.8, -1.5);
+    // Mount into top PCIe x16 slot position
+    gpuGroup.position.set(-0.5, -0.2, -3.2);
     pcCaseGroup.add(gpuGroup);
 
     const gpuColor = activeBuild.gpu.color || 0x00f0ff;
-    const darkMat = new THREE.MeshPhysicalMaterial({ color: 0x0a0a12, metalness: 0.85, roughness: 0.25, clearcoat: 0.2 });
-    const silverMat = new THREE.MeshPhysicalMaterial({ color: 0xe5e7eb, metalness: 1.0, roughness: 0.15 });
+    const darkShroudMat = new THREE.MeshPhysicalMaterial({ color: 0x0d111a, metalness: 0.9, roughness: 0.25, clearcoat: 0.3 });
+    const silverMat = new THREE.MeshPhysicalMaterial({ color: 0xd8d8d8, metalness: 0.95, roughness: 0.15 });
 
-    // Main GPU shroud body
-    const body = new THREE.Mesh(new THREE.BoxGeometry(7.5, 2.0, 3.2), darkMat);
-    gpuGroup.add(body);
+    // Main GPU Card Body
+    const gpuBody = new THREE.Mesh(new THREE.BoxGeometry(7.2, 1.8, 3.2), darkShroudMat);
+    gpuGroup.add(gpuBody);
 
-    // Metal backplate
-    const bp = new THREE.Mesh(new THREE.BoxGeometry(7.6, 0.1, 3.3), silverMat);
-    bp.position.set(0, -1.05, 0);
-    gpuGroup.add(bp);
+    // Top Brushed Aluminum Backplate
+    const backplate = new THREE.Mesh(new THREE.BoxGeometry(7.3, 0.1, 3.3), silverMat);
+    backplate.position.set(0, 0.95, 0);
+    gpuGroup.add(backplate);
 
-    // RGB Edge strips
-    gpuGroup.add(Object.assign(new THREE.Mesh(new THREE.BoxGeometry(7.2, 0.08, 0.08),
-        new THREE.MeshBasicMaterial({ color: gpuColor })), { position: new THREE.Vector3(0, 1.05, 1.6) }));
-    gpuGroup.add(Object.assign(new THREE.Mesh(new THREE.BoxGeometry(7.2, 0.06, 0.06),
-        new THREE.MeshBasicMaterial({ color: gpuColor })), { position: new THREE.Vector3(0, -1.1, 1.6) }));
+    // Glowing RGB Side Brand Bar
+    const rgbBar = new THREE.Mesh(new THREE.BoxGeometry(6.8, 0.15, 0.1),
+        new THREE.MeshBasicMaterial({ color: gpuColor }));
+    rgbBar.position.set(0, 0.5, 1.62);
+    gpuGroup.add(rgbBar);
 
-    // 3 Cooling Fans
+    // 3 Recessed Cooling Fans
     for (let f = 0; f < 3; f++) {
-        const x = -2.3 + (f * 2.3);
-        const ring = new THREE.Mesh(new THREE.TorusGeometry(0.85, 0.07, 16, 32),
-            new THREE.MeshPhysicalMaterial({ color: 0x151515, metalness: 0.8, roughness: 0.4 }));
-        ring.rotation.x = Math.PI / 2; ring.position.set(x, 0, 1.65); gpuGroup.add(ring);
+        const xPos = -2.1 + (f * 2.1);
+        const fanHousing = new THREE.Mesh(new THREE.TorusGeometry(0.8, 0.06, 16, 32),
+            new THREE.MeshPhysicalMaterial({ color: 0x151822, metalness: 0.8, roughness: 0.3 }));
+        fanHousing.rotation.x = Math.PI / 2;
+        fanHousing.position.set(xPos, -0.1, 1.62);
+        gpuGroup.add(fanHousing);
 
-        const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.06, 16),
-            silverMat); hub.rotation.x = Math.PI / 2; hub.position.set(x, 0, 1.68); gpuGroup.add(hub);
+        const fanHub = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.08, 16), silverMat);
+        fanHub.rotation.x = Math.PI / 2;
+        fanHub.position.set(xPos, -0.1, 1.65);
+        gpuGroup.add(fanHub);
 
         for (let b = 0; b < 7; b++) {
-            const blade = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.6, 0.02),
-                new THREE.MeshStandardMaterial({ color: 0x333, transparent: true, opacity: 0.8 }));
-            blade.rotation.z = (b * Math.PI * 2 / 7); blade.position.set(x, 0, 1.67); gpuGroup.add(blade);
+            const blade = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.55, 0.02),
+                new THREE.MeshStandardMaterial({ color: 0x222630, transparent: true, opacity: 0.85 }));
+            blade.rotation.z = (b * Math.PI * 2 / 7);
+            blade.position.set(xPos, -0.1, 1.64);
+            gpuGroup.add(blade);
         }
     }
 
-    // Heatsink fins
-    const finMat = new THREE.MeshPhysicalMaterial({ color: 0x2a2a35, metalness: 0.7, roughness: 0.4 });
+    // Cooling Heatpipe Fins on the side
+    const finMat = new THREE.MeshPhysicalMaterial({ color: 0x252a36, metalness: 0.8, roughness: 0.35 });
     for (let i = 0; i < 10; i++) {
-        const fin = new THREE.Mesh(new THREE.BoxGeometry(7.0, 0.03, 2.8), finMat);
-        fin.position.set(0, -0.7 + (i * 0.15), -0.1); gpuGroup.add(fin);
+        const fin = new THREE.Mesh(new THREE.BoxGeometry(6.8, 0.04, 2.6), finMat);
+        fin.position.set(0, -0.7 + (i * 0.14), -0.1);
+        gpuGroup.add(fin);
     }
 }
 
@@ -424,15 +477,30 @@ function createDetailedRAMMesh() {
     pcCaseGroup.add(ramGroup);
 
     const ramColor = activeBuild.ram.color || 0x00f0ff;
-    const stickMat = new THREE.MeshPhysicalMaterial({ map: ramTexture, color: 0xaaaaaa, metalness: 0.5, roughness: 0.4 });
+    const stickMat = new THREE.MeshPhysicalMaterial({ color: 0x161b26, metalness: 0.85, roughness: 0.25 });
+    const silverAccentMat = new THREE.MeshPhysicalMaterial({ color: 0xd8d8d8, metalness: 0.95, roughness: 0.15 });
 
+    // Mount 2 DDR5 Sticks into Slots 2 and 4
     for (let i = 0; i < 2; i++) {
         const ramStick = new THREE.Group();
-        ramStick.add(new THREE.Mesh(new THREE.BoxGeometry(0.2, 2.8, 0.8), stickMat));
-        const bar = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.35, 0.85),
+
+        // Main Heatspreader Body
+        const body = new THREE.Mesh(new THREE.BoxGeometry(0.14, 2.8, 0.8), stickMat);
+        ramStick.add(body);
+
+        // Silver Heatsink Armor Line
+        const armor = new THREE.Mesh(new THREE.BoxGeometry(0.16, 1.2, 0.75), silverAccentMat);
+        armor.position.set(0, 0.2, 0);
+        ramStick.add(armor);
+
+        // Top Diffused RGB Bar
+        const rgbBar = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.3, 0.82),
             new THREE.MeshBasicMaterial({ color: ramColor }));
-        bar.position.y = 1.3; ramStick.add(bar);
-        ramStick.position.set(1.8 + (i * 0.6), 2.8, -4.55);
+        rgbBar.position.y = 1.35;
+        ramStick.add(rgbBar);
+
+        // Position inside Motherboard RAM Slots
+        ramStick.position.set(1.7 + (i * 1.0), 2.8, -4.7);
         ramGroup.add(ramStick);
     }
 }
@@ -442,59 +510,62 @@ function createDetailedCoolerMesh() {
     coolerGroup = new THREE.Group();
     pcCaseGroup.add(coolerGroup);
 
-    // AIO Pump Head on CPU
-    const pump = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 1.0, 0.6, 64),
-        new THREE.MeshPhysicalMaterial({ color: 0x020617, metalness: 0.85, roughness: 0.35, clearcoat: 0.2 }));
+    // --- AIO PUMP HEAD (Mounted directly on CPU) ---
+    const pumpMat = new THREE.MeshPhysicalMaterial({ color: 0x090d16, metalness: 0.9, roughness: 0.25, clearcoat: 0.3 });
+    const pump = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 1.0, 0.65, 64), pumpMat);
     pump.rotation.x = Math.PI / 2;
-    pump.position.set(-0.8, 2.8, -4.2);
+    pump.position.set(-0.8, 2.8, -4.4);
     coolerGroup.add(pump);
 
-    // LCD face
-    const mirror = new THREE.Mesh(new THREE.CircleGeometry(0.8, 64),
-        new THREE.MeshPhysicalMaterial({ color: 0x000000, emissive: 0x00f0ff, emissiveIntensity: 0.8,
-            metalness: 1.0, roughness: 0.0, clearcoat: 1.0 }));
-    mirror.position.set(0, 0.32, 0); mirror.rotation.x = -Math.PI / 2;
-    pump.add(mirror);
+    // Infinity Mirror / OLED Display Face
+    const displayFace = new THREE.Mesh(new THREE.CircleGeometry(0.82, 64),
+        new THREE.MeshPhysicalMaterial({
+            color: 0x000000, emissive: 0x00f0ff, emissiveIntensity: 0.9,
+            metalness: 1.0, roughness: 0.0, clearcoat: 1.0
+        }));
+    displayFace.position.set(-0.8, 2.8, -4.06);
+    coolerGroup.add(displayFace);
 
-    // Pump glow ring
-    coolerGroup.add(Object.assign(new THREE.Mesh(new THREE.TorusGeometry(1.0, 0.04, 16, 32),
-        new THREE.MeshBasicMaterial({ color: 0x00f0ff })),
-        { position: new THREE.Vector3(-0.8, 2.8, -3.88), rotation: new THREE.Euler(Math.PI/2, 0, 0) }));
+    // Outer RGB Glow Ring
+    const pumpRing = new THREE.Mesh(new THREE.TorusGeometry(0.98, 0.04, 16, 32),
+        new THREE.MeshBasicMaterial({ color: 0x00f0ff }));
+    pumpRing.position.set(-0.8, 2.8, -4.05);
+    coolerGroup.add(pumpRing);
 
-    // AIO TUBES: from pump UP to top radiator
-    const tubeMat = new THREE.MeshPhysicalMaterial({ color: 0x0a0a0a, roughness: 0.6, clearcoat: 0.2 });
+    // --- AIO LIQUID TUBES (Curving smoothly from pump UP to top radiator) ---
+    const tubeMat = new THREE.MeshPhysicalMaterial({ color: 0x0a0d14, roughness: 0.5, clearcoat: 0.2 });
 
-    // Tube 1: pump right -> up -> radiator
-    const t1 = new THREE.CatmullRomCurve3([
-        new THREE.Vector3(0, 2.8, -4.0),
-        new THREE.Vector3(0.4, 3.8, -3.2),
-        new THREE.Vector3(0.6, 5.0, -2.5),
-        new THREE.Vector3(0.5, 5.8, -2.0)
+    // Tube 1: Pump right port -> curves up to top radiator
+    const t1Curve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-0.2, 2.8, -4.1),
+        new THREE.Vector3(0.5, 3.6, -3.2),
+        new THREE.Vector3(0.8, 4.8, -2.4),
+        new THREE.Vector3(0.5, 5.8, -1.8)
     ]);
-    coolerGroup.add(new THREE.Mesh(new THREE.TubeGeometry(t1, 24, 0.1, 8, false), tubeMat));
+    coolerGroup.add(new THREE.Mesh(new THREE.TubeGeometry(t1Curve, 24, 0.11, 12, false), tubeMat));
 
-    // Tube 2: pump left -> up -> radiator
-    const t2 = new THREE.CatmullRomCurve3([
-        new THREE.Vector3(-1.6, 2.8, -4.0),
-        new THREE.Vector3(-2.0, 3.8, -3.2),
-        new THREE.Vector3(-2.0, 5.0, -2.5),
-        new THREE.Vector3(-1.5, 5.8, -2.0)
+    // Tube 2: Pump left port -> curves up to top radiator
+    const t2Curve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-1.4, 2.8, -4.1),
+        new THREE.Vector3(-2.0, 3.6, -3.2),
+        new THREE.Vector3(-2.0, 4.8, -2.4),
+        new THREE.Vector3(-1.5, 5.8, -1.8)
     ]);
-    coolerGroup.add(new THREE.Mesh(new THREE.TubeGeometry(t2, 24, 0.1, 8, false), tubeMat));
+    coolerGroup.add(new THREE.Mesh(new THREE.TubeGeometry(t2Curve, 24, 0.11, 12, false), tubeMat));
 
-    // TOP-MOUNTED RADIATOR
-    const rad = new THREE.Mesh(new THREE.BoxGeometry(7, 0.7, 2.2),
-        new THREE.MeshPhysicalMaterial({ color: 0x111118, metalness: 0.9, roughness: 0.35 }));
-    rad.position.set(0, 5.9, -2.0);
-    coolerGroup.add(rad);
+    // --- TOP-MOUNTED RADIATOR & FANS ---
+    const radMat = new THREE.MeshPhysicalMaterial({ color: 0x0c101a, metalness: 0.9, roughness: 0.3 });
+    const radiator = new THREE.Mesh(new THREE.BoxGeometry(7.2, 0.7, 2.4), radMat);
+    radiator.position.set(0, 5.85, -1.8);
+    coolerGroup.add(radiator);
 
-    // 2 Radiator fans
+    // 2 Top Radiator RGB Fans
     for (let f = 0; f < 2; f++) {
-        coolerGroup.add(Object.assign(new THREE.Mesh(
-            new THREE.TorusGeometry(0.9, 0.05, 16, 32),
-            new THREE.MeshBasicMaterial({ color: 0x00f0ff })),
-            { position: new THREE.Vector3(-1.5 + (f * 3), 5.9, -0.7),
-              rotation: new THREE.Euler(Math.PI/2, 0, 0) }));
+        const radFanRing = new THREE.Mesh(new THREE.TorusGeometry(0.85, 0.05, 16, 32),
+            new THREE.MeshBasicMaterial({ color: 0x00f0ff }));
+        radFanRing.rotation.x = Math.PI / 2;
+        radFanRing.position.set(-1.6 + (f * 3.2), 5.85, -0.5);
+        coolerGroup.add(radFanRing);
     }
 }
 
