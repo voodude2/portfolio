@@ -5,6 +5,28 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
+        hunting: {
+            title: "Apex Hunter - Premium Hunting & Firearms Outfitter",
+            desc: "A tactical multi-page web application for a licensed hunting equipment outfitter. Features a dedicated Firearms Catalog page (catalog.html), caliber and optics filter, specification modal, and step-by-step licensing guide.",
+            features: [
+                "🎯 Multi-page architecture (Main Store index.html & Firearms Catalog catalog.html)",
+                "🔍 Dual Filter Engine (Category filter & Caliber selector: .308, 6.5 Creedmoor, 12G)",
+                "📋 Interactive Firearms Specification Modal (Weight, barrel length, magazine, range)",
+                "🌲 Tactical Forest Green & Bronze Amber Design System"
+            ],
+            link: "./page 5/index.html"
+        },
+        pet: {
+            title: "Pawfect Haven - Luxury Pet Shop & Care Hub",
+            desc: "A vibrant, warm pet store and spa booking web application. Features an organic product catalog, interactive shopping cart drawer, grooming spa appointment cost calculator, and pet adoption matching tools.",
+            features: [
+                "🐾 Slide-over Shopping Cart Drawer with real-time subtotal & checkout",
+                "🛁 Grooming Spa Calculator (Instant price & duration estimate based on pet & package)",
+                "🦴 Product Catalog with category filtering (Dogs, Cats, Grooming, Vet)",
+                "✨ Cheerful pastel design system with high-res pet imagery"
+            ],
+            link: "./page 4/index.html"
+        },
         web3: {
             title: "Mucho Coin ($MCH) - Solana Crypto Platform",
             desc: "A futuristic Solana-powered cryptocurrency platform built with 100% offline Javascript architecture. Includes a DEX Swap simulator, APY Staking calculator, AirDrop verification module, and native SVG Trading View chart engine.",
@@ -14,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "🔄 Interactive DEX Swap with SOL to MCH exchange calculation",
                 "🔒 Staking Vault yield calculator with real-time APY estimates"
             ],
-            link: "../page 3/index.html"
+            link: "./page 3/index.html"
         },
         travel: {
             title: "GlobeTrotter Travel & Tours Hub",
@@ -25,7 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 "⭐ Customer reviews and rating showcase",
                 "📱 Responsive mobile-first layout with smooth CSS transitions"
             ],
-            link: "../page 2/index.html"
+            link: "./page 2/index.html"
+        },
+        saas: {
+            title: "NextGen SaaS Corporate Platform",
+            desc: "A corporate SaaS landing page template built with semantic HTML5 and clean CSS. Focuses on conversion rate optimization, pricing plan matrices, and lead generation.",
+            features: [
+                "💼 Multi-page architecture (Features, Pricing, About, Contact)",
+                "💳 Tiered pricing plans with monthly/annual toggle",
+                "📈 High-converting call-to-action sections and hero banners"
+            ],
+            link: "./page one/index.html"
         }
     };
 

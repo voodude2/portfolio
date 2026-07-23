@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Portfolio & Projects Gallery | Web3, Travel & SaaS</title>
-    <meta name="description" content="Personal Developer & Designer Portfolio. Showcasing Web3 Crypto Apps, Travel Booking Platforms, and Modern SaaS Applications.">
+    <title>Developer Portfolio & Projects Gallery | Web3 & Travel</title>
+    <meta name="description" content="Personal Developer & Designer Portfolio. Showcasing Web3 Crypto Apps and Travel Booking Platforms.">
     
     <!-- Fonts & FontAwesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,7 +81,7 @@
 
                 <div class="hero-stats-row">
                     <div>
-                        <div class="stat-num green-text">3+</div>
+                        <div class="stat-num green-text">2+</div>
                         <div class="stat-label">Live Web Projects</div>
                     </div>
                     <div>
@@ -97,7 +97,7 @@
 
             <div class="hero-avatar-box">
                 <div class="avatar-card">
-                    <img src="./assets/images/avatar.jpg" alt="Developer Avatar">
+                    <img src="./portfolio/assets/images/avatar.jpg" alt="Developer Avatar">
                 </div>
                 <div class="floating-tech-badge">
                     <i class="fa-solid fa-bolt" style="color: var(--color-green); font-size: 1.4rem;"></i>
@@ -131,22 +131,87 @@
 
             <!-- Filter Buttons -->
             <div class="filter-tabs">
-                <button class="filter-btn active" data-filter="all">All Projects (2)</button>
+                <button class="filter-btn active" data-filter="all">All Projects (5)</button>
+                <button class="filter-btn" data-filter="hunting">Hunting & Firearms</button>
+                <button class="filter-btn" data-filter="pet">Pet Care & Shop</button>
                 <button class="filter-btn" data-filter="web3">Crypto & Web3</button>
                 <button class="filter-btn" data-filter="travel">Travel & Booking</button>
+                <button class="filter-btn" data-filter="saas">SaaS & Corporate</button>
             </div>
 
             <!-- Projects Grid -->
             <div class="projects-grid">
 
+                <!-- Project 5: Apex Hunter -->
+                <div class="project-card" data-category="hunting">
+                    <a href="./page 5/index.html" target="_blank" class="card-banner">
+                        <img src="./portfolio/assets/images/hunting.jpg" alt="Apex Hunter Store">
+                        <span class="category-tag"><i class="fa-solid fa-crosshairs"></i> Hunting & Firearms</span>
+                    </a>
+                    <div class="card-body">
+                        <a href="./page 5/index.html" target="_blank" style="text-decoration: none;">
+                            <h3 class="card-title amber-text">Apex Hunter Outfitter</h3>
+                        </a>
+                        <p class="card-desc">
+                            Tactical multi-page hunting & firearms store featuring dedicated firearms catalog (catalog.html), caliber filters, optics specs, and licensing guide.
+                        </p>
+                        <div class="card-tags">
+                            <span class="mini-tag">Multi-Page</span>
+                            <span class="mini-tag">Firearms Catalog</span>
+                            <span class="mini-tag">Specs Modal</span>
+                            <span class="mini-tag">Tactical UI</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="./page 5/index.html" target="_blank" class="btn-card-launch">
+                                Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                            <button class="btn-card-details" data-modal="hunting">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Pawfect Haven Pet Shop -->
+                <div class="project-card" data-category="pet">
+                    <a href="./page 4/index.html" target="_blank" class="card-banner">
+                        <img src="./portfolio/assets/images/petshop.jpg" alt="Pawfect Haven Pet Shop">
+                        <span class="category-tag"><i class="fa-solid fa-paw"></i> Pet Care & Shop</span>
+                    </a>
+                    <div class="card-body">
+                        <a href="./page 4/index.html" target="_blank" style="text-decoration: none;">
+                            <h3 class="card-title coral-text">Pawfect Haven Pet Shop</h3>
+                        </a>
+                        <p class="card-desc">
+                            Vibrant, luxury Pet Store & Spa platform featuring interactive product catalog, grooming spa appointment calculator, and shopping cart drawer.
+                        </p>
+                        <div class="card-tags">
+                            <span class="mini-tag">Pet Store</span>
+                            <span class="mini-tag">Cart Drawer</span>
+                            <span class="mini-tag">Spa Calculator</span>
+                            <span class="mini-tag">Interactive UI</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="./page 4/index.html" target="_blank" class="btn-card-launch">
+                                Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                            <button class="btn-card-details" data-modal="pet">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Project 1: Mucho Coin -->
                 <div class="project-card" data-category="web3">
-                    <div class="card-banner">
-                        <img src="./assets/images/web3.jpg" alt="Mucho Coin Solana DEX">
+                    <a href="./page 3/index.html" target="_blank" class="card-banner">
+                        <img src="./portfolio/assets/images/web3.jpg" alt="Mucho Coin Solana DEX">
                         <span class="category-tag"><i class="fa-solid fa-coins"></i> Crypto & Web3</span>
-                    </div>
+                    </a>
                     <div class="card-body">
-                        <h3 class="card-title gold-text">Mucho Coin ($MCH)</h3>
+                        <a href="./page 3/index.html" target="_blank" style="text-decoration: none;">
+                            <h3 class="card-title gold-text">Mucho Coin ($MCH)</h3>
+                        </a>
                         <p class="card-desc">
                             High-yield Solana cryptocurrency landing page featuring DEX Swap terminal, APY Staking calculator, AirDrop checker, and offline vector trading chart.
                         </p>
@@ -157,7 +222,7 @@
                             <span class="mini-tag">Staking Vault</span>
                         </div>
                         <div class="card-actions">
-                            <a href="../page 3/index.html" target="_blank" class="btn-card-launch">
+                            <a href="./page 3/index.html" target="_blank" class="btn-card-launch">
                                 Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                             <button class="btn-card-details" data-modal="web3">
@@ -169,12 +234,14 @@
 
                 <!-- Project 2: GlobeTrotter Travel -->
                 <div class="project-card" data-category="travel">
-                    <div class="card-banner">
-                        <img src="./assets/images/travel.jpg" alt="GlobeTrotter Travel Hub">
+                    <a href="./page 2/index.html" target="_blank" class="card-banner">
+                        <img src="./portfolio/assets/images/travel.jpg" alt="GlobeTrotter Travel Hub">
                         <span class="category-tag"><i class="fa-solid fa-plane"></i> Travel & Booking</span>
-                    </div>
+                    </a>
                     <div class="card-body">
-                        <h3 class="card-title green-text">GlobeTrotter Travel & Tours</h3>
+                        <a href="./page 2/index.html" target="_blank" style="text-decoration: none;">
+                            <h3 class="card-title green-text">GlobeTrotter Travel & Tours</h3>
+                        </a>
                         <p class="card-desc">
                             Luxury travel booking platform with interactive destination search, tour packages, booking wizard, and customer reviews.
                         </p>
@@ -185,10 +252,40 @@
                             <span class="mini-tag">UI/UX</span>
                         </div>
                         <div class="card-actions">
-                            <a href="../page 2/index.html" target="_blank" class="btn-card-launch">
+                            <a href="./page 2/index.html" target="_blank" class="btn-card-launch">
                                 Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                             <button class="btn-card-details" data-modal="travel">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: NextGen SaaS -->
+                <div class="project-card" data-category="saas">
+                    <a href="./page one/index.html" target="_blank" class="card-banner">
+                        <img src="./portfolio/assets/images/saas.jpg" alt="SaaS Product Platform">
+                        <span class="category-tag"><i class="fa-solid fa-cubes"></i> SaaS & Corporate</span>
+                    </a>
+                    <div class="card-body">
+                        <a href="./page one/index.html" target="_blank" style="text-decoration: none;">
+                            <h3 class="card-title gradient-text">NextGen SaaS Platform</h3>
+                        </a>
+                        <p class="card-desc">
+                            Corporate software-as-a-service website featuring tier pricing tables, feature breakdowns, lead capture form, and about pages.
+                        </p>
+                        <div class="card-tags">
+                            <span class="mini-tag">HTML5/CSS3</span>
+                            <span class="mini-tag">Pricing</span>
+                            <span class="mini-tag">Multi-Page</span>
+                            <span class="mini-tag">Lead Form</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="./page one/index.html" target="_blank" class="btn-card-launch">
+                                Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                            <button class="btn-card-details" data-modal="saas">
                                 Details
                             </button>
                         </div>
