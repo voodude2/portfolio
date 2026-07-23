@@ -5,6 +5,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
+        herpetology: {
+            title: "Snakes of Georgia - Caucasian Herpetology Guide & Species Catalog",
+            desc: "A comprehensive English multi-page web application featuring all 20+ native snake species of Georgia. Includes toxicity filtering (Vipers vs. Harmless), detailed scientific profiles, snake identification guides, and emergency first-aid protocols.",
+            features: [
+                "🐍 Complete Catalog of 20+ Native Georgian Species (Gyurza, Caucasian Viper, Dinnik's Viper, etc.)",
+                "🔍 Dual Filter Engine (By toxicity level & region/habitat)",
+                "🏥 Emergency Snakebite First-Aid Guide & 112 Hotline protocol",
+                "🌿 Nature & Herpetology Design System (#0D2818, #C85A32, #E0A93B)"
+            ],
+            link: "./page 7/index.html"
+        },
         gaming: {
             title: "CyberPulse Arena - Next-Gen Esports & PC Gaming Lounge",
             desc: "A futuristic cyberpunk multi-page web application for a premier 24/7 gaming lounge. Features 4 distinct PC Hardware Tiers (Basic, Premium, Pro Arena, Ultra VIP Pods), a live station booking calculator with date & hour selection, and an interactive location map.",

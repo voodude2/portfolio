@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native Snake Species Catalog | Snakes of Georgia</title>
+    <meta name="description" content="Complete encyclopedia of all native snake species in Georgia (Caucasus). Search and filter by toxicity, habitat, and region.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-staff-snake"></i>
+                </div>
+                <div>
+                    <div class="brand-title">SNAKES OF GEORGIA</div>
+                    <div class="brand-subtitle">Caucasian Herpetology Guide</div>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home Overview</a></li>
+                    <li><a href="species.html" class="active">Species Catalog</a></li>
+                    <li><a href="safety.html">Safety & First-Aid</a></li>
+                    <li><a href="../index.html" style="color: var(--accent-orange);"><i class="fa-solid fa-arrow-left"></i> Portfolio</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <a href="safety.html" class="btn-nav-action">
+                    <i class="fa-solid fa-shield-halved"></i> Safety Guide
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header Banner -->
+    <section style="background: var(--bg-dark); color: #fff; padding-top: 140px; padding-bottom: 40px; border-bottom: 4px solid var(--accent-gold);">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 0 24px; text-align: center;">
+            <span class="hero-tag" style="background: rgba(224, 169, 59, 0.15); color: var(--accent-gold);">
+                <i class="fa-solid fa-book-atlas"></i> COMPLETE HERPETOLOGICAL DATABASE
+            </span>
+            <h1 class="hero-title" style="color: #fff; font-size: 3rem; margin-top: 10px;">Native Species Catalog</h1>
+            <p style="color: #A3B899; max-width: 650px; margin: 0 auto;">
+                Explore all indigenous snake species of Georgia. Filter by venom toxicity, search by English, Georgian, or scientific names.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Catalog Area -->
+    <main style="max-width: 1320px; margin: 50px auto 100px; padding: 0 24px;">
+
+        <!-- Filter & Search Controls Bar -->
+        <div class="filter-section">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" placeholder="Search by name (e.g. Gyurza, Vipera, Grass Snake, გველგესლა)...">
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">All Species (20+)</button>
+                <button class="filter-btn" data-filter="high">⚠️ High Risk Venomous</button>
+                <button class="filter-btn" data-filter="mild">🧪 Mildly Venomous</button>
+                <button class="filter-btn" data-filter="safe">🛡️ Harmless</button>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <span id="species-count" style="font-weight: 700; color: var(--text-muted); font-size: 0.95rem;">Showing 14 species</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-info-circle"></i> Click any species card for scientific specs</span>
+        </div>
+
+        <!-- Species Cards Grid container rendered dynamically by app.js -->
+        <div class="species-grid" id="species-container">
+            <!-- Rendered by JS -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-staff-snake" style="color: var(--accent-gold); font-size: 1.6rem;"></i>
+                <span style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800;">SNAKES OF GEORGIA</span>
+            </div>
+            <div style="color: #9CA3AF; font-size: 0.9rem;">© 2026 Caucasian Herpetology Guide. Wildlife Data & Educational Resources.</div>
+            <a href="../index.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left"></i> Developer Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <!-- App JS -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Identification & First-Aid Guide | Snakes of Georgia</title>
+    <meta name="description" content="Learn how to distinguish venomous Caucasian vipers from harmless snakes, and read emergency snakebite protocols in Georgia.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-staff-snake"></i>
+                </div>
+                <div>
+                    <div class="brand-title">SNAKES OF GEORGIA</div>
+                    <div class="brand-subtitle">Caucasian Herpetology Guide</div>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home Overview</a></li>
+                    <li><a href="species.html">Species Catalog</a></li>
+                    <li><a href="safety.html" class="active">Safety & First-Aid</a></li>
+                    <li><a href="../index.html" style="color: var(--accent-orange);"><i class="fa-solid fa-arrow-left"></i> Portfolio</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <a href="species.html" class="btn-nav-action">
+                    <i class="fa-solid fa-layer-group"></i> Species Catalog
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header Banner -->
+    <section style="background: var(--bg-dark); color: #fff; padding-top: 140px; padding-bottom: 40px; border-bottom: 4px solid var(--danger-red);">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 0 24px; text-align: center;">
+            <span class="hero-tag" style="background: rgba(220, 38, 38, 0.15); color: var(--danger-red);">
+                <i class="fa-solid fa-shield-halved"></i> FIELD SAFETY & EMERGENCY PROTOCOL
+            </span>
+            <h1 class="hero-title" style="color: #fff; font-size: 3rem; margin-top: 10px;">Identification & First-Aid</h1>
+            <p style="color: #A3B899; max-width: 650px; margin: 0 auto;">
+                Key physical differences between venomous Caucasian vipers and harmless water snakes, plus official emergency procedures in Georgia.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Safety Content -->
+    <main style="max-width: 1320px; margin: 50px auto 100px; padding: 0 24px;">
+
+        <!-- ID Comparison Grid -->
+        <h2 style="font-size: 2.2rem; margin-bottom: 24px; color: var(--primary);">Viper vs. Harmless Snake Identification</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px;">
+            
+            <!-- Viper Specs -->
+            <div style="background: #fff; border: 2px solid var(--danger-red); border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow-soft);">
+                <span class="badge-toxic badge-high" style="margin-bottom: 16px;">⚠️ Caucasian Vipers (Viperidae)</span>
+                <h3 style="font-size: 1.6rem; margin-bottom: 16px;">Venomous Characteristics</h3>
+                
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 0.95rem;">
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <i class="fa-solid fa-eye" style="color: var(--danger-red); margin-top: 4px;"></i>
+                        <div><strong>Pupil Shape:</strong> Vertical slit-like pupils (like a cat's eye in bright light).</div>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <i class="fa-solid fa-shapes" style="color: var(--danger-red); margin-top: 4px;"></i>
+                        <div><strong>Head Shape:</strong> Distinctly broad, triangular, or heart-shaped head clearly offset from thin neck.</div>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <i class="fa-solid fa-ruler" style="color: var(--danger-red); margin-top: 4px;"></i>
+                        <div><strong>Body Proportion:</strong> Heavy-set, stocky, thick body with a short tail that tapers abruptly.</div>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <i class="fa-solid fa-shield-cat" style="color: var(--danger-red); margin-top: 4px;"></i>
+                        <div><strong>Scale Texture:</strong> Strongly keeled, rough-textured scales. Small scales covering the crown of head.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Harmless Specs -->
+            <div style="background: #fff; border: 2px solid var(--accent-green); border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow-soft);">
+                <span class="badge-toxic badge-safe" style="margin-bottom: 16px;">🛡️ Harmless Snakes (Colubridae)</span>
+                <h3 style="font-size: 1.6rem; margin-bottom: 16px;">Non-Venomous Characteristics</h3>
+                
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 0.95rem;">
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <i class="fa-solid fa-eye" style="color: var(--accent-green); margin-top: 4px;"></i>
+                        <div><strong>Pupil Shape:</strong> Perfectly round pupils (except the nocturnal Cat Snake).</div>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <i class="fa-solid fa-shapes" style="color: var(--accent-green); margin-top: 4px;"></i>
+                        <div><strong>Head Shape:</strong> Oval or oval-oblong head that blends smoothly into body without sharp neck taper.</div>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <i class="fa-solid fa-ruler" style="color: var(--accent-green); margin-top: 4px;"></i>
+                        <div><strong>Body Proportion:</strong> Slender, elongated body with long gradually tapering tail.</div>
+                    </li>
+                    <li style="display: flex; gap: 12px; align-items: flex-start;">
+                        <i class="fa-solid fa-shield-cat" style="color: var(--accent-green); margin-top: 4px;"></i>
+                        <div><strong>Head Plates:</strong> Large, smooth plate scales covering the top of the head.</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- First Aid Protocols Section -->
+        <h2 style="font-size: 2.2rem; margin-bottom: 24px; color: var(--primary);">Emergency First-Aid Protocol (Snakebite)</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px;">
+            
+            <div style="background: rgba(16, 185, 129, 0.08); border-left: 5px solid var(--accent-green); padding: 28px; border-radius: var(--radius-md);">
+                <h3 style="color: var(--accent-green); margin-bottom: 16px;"><i class="fa-solid fa-circle-check"></i> WHAT TO DO:</h3>
+                <ol style="margin-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
+                    <li><strong>Call 112 Immediately:</strong> Contact Georgian Emergency Response Service.</li>
+                    <li><strong>Remain Calm:</strong> Panic increases heart rate and speeds up venom dissemination.</li>
+                    <li><strong>Immobilize Limb:</strong> Keep bitten arm/leg still and below heart level.</li>
+                    <li><strong>Remove Jewelry & Tight Clothing:</strong> Swelling can happen rapidly.</li>
+                    <li><strong>Clean Wound:</strong> Gently wash with water and cover with clean dry cloth.</li>
+                </ol>
+            </div>
+
+            <div style="background: rgba(220, 38, 38, 0.08); border-left: 5px solid var(--danger-red); padding: 28px; border-radius: var(--radius-md);">
+                <h3 style="color: var(--danger-red); margin-bottom: 16px;"><i class="fa-solid fa-circle-xmark"></i> WHAT NOT TO DO:</h3>
+                <ol style="margin-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
+                    <li><strong>DO NOT Apply Tourniquet:</strong> Cuts off blood flow and exacerbates local tissue necrosis.</li>
+                    <li><strong>DO NOT Cut or Suck Wound:</strong> Introduces mouth bacteria and does not extract venom.</li>
+                    <li><strong>DO NOT Apply Ice:</strong> Causes severe frostbite and localized tissue damage.</li>
+                    <li><strong>DO NOT Drink Alcohol or Caffeine:</strong> Increases systemic circulation.</li>
+                    <li><strong>DO NOT Attempt to Catch Snake:</strong> Risk taking a second venomous bite.</li>
+                </ol>
+            </div>
+
+        </div>
+
+        <!-- Interactive Safety Quiz -->
+        <h2 style="font-size: 2.2rem; margin-bottom: 16px; color: var(--primary);">Test Your Knowledge</h2>
+        <p style="color: var(--text-muted); margin-bottom: 24px;">Interactive quiz to test your identification and safety preparedness before hiking in Georgia.</p>
+
+        <div id="quiz-container">
+            <!-- Quiz Engine rendered by app.js -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1320px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-staff-snake" style="color: var(--accent-gold); font-size: 1.6rem;"></i>
+                <span style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800;">SNAKES OF GEORGIA</span>
+            </div>
+            <div style="color: #9CA3AF; font-size: 0.9rem;">© 2026 Caucasian Herpetology Guide. Wildlife Data & Educational Resources.</div>
+            <a href="../index.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 700;">
+                <i class="fa-solid fa-arrow-left"></i> Developer Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <!-- App JS -->
+    <script src="app.js"></script>
+</body>
+</html>
