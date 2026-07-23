@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberPulse Arena - Next-Gen Esports & PC Gaming Lounge</title>
+    <meta name="description" content="CyberPulse Arena is Tbilisi's premier 24/7 esports lounge featuring RTX 4090 VIP pods, 540Hz monitors, liquid cooling, and instant PC station booking.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-badge">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <div>
+                    <div class="brand-title">CYBER<span class="cyan-text">PULSE</span></div>
+                    <div class="brand-subtitle">Esports Lounge • 24/7</div>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="stations.html">PC Gaming Zones</a></li>
+                    <li><a href="#booking">Book Station</a></li>
+                    <li><a href="#tournaments">Tournaments</a></li>
+                    <li><a href="#location">Location & Map</a></li>
+                    <li><a href="../index.html" style="color: var(--neon-amber);"><i class="fa-solid fa-arrow-left"></i> Portfolio</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <a href="#booking" class="btn-cyan">
+                    <i class="fa-solid fa-bolt"></i> Book Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div>
+                    <div class="hero-tag">
+                        <i class="fa-solid fa-circle-dot green-text"></i>
+                        <span>64/70 PC RIGS AVAILABLE NOW • 1GBPS FIBER</span>
+                    </div>
+                    <h1 class="hero-title">
+                        ENTER THE <span class="cyan-text">ULTIMATE</span> GAMING <span class="pink-text">ARENA</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Experience zero-latency competitive gaming on RTX 4090 liquid-cooled rigs, 540Hz ROG monitors, Secretlab seats, and custom VIP private gaming pods.
+                    </p>
+
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
+                        <a href="#booking" class="btn-cyan">
+                            <i class="fa-solid fa-calendar-check"></i> Reserve PC Station
+                        </a>
+                        <a href="stations.html" class="btn-pink">
+                            <i class="fa-solid fa-desktop"></i> View 4 PC Tiers
+                        </a>
+                    </div>
+
+                    <div class="hero-stats-row">
+                        <div>
+                            <div class="hero-stat-num">540Hz</div>
+                            <div class="hero-stat-label">Max Refresh Rate</div>
+                        </div>
+                        <div>
+                            <div class="hero-stat-num">4ms</div>
+                            <div class="hero-stat-label">Ultra Low Ping</div>
+                        </div>
+                        <div>
+                            <div class="hero-stat-num">24/7</div>
+                            <div class="hero-stat-label">Non-Stop Open</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Box -->
+                <div style="background: var(--bg-surface); border: 2px solid var(--border-cyan); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--glow-cyan); position: relative; overflow: hidden;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border-cyan); padding-bottom: 12px;">
+                        <span style="font-family: var(--font-heading); font-size: 0.9rem;" class="cyan-text">LIVE STATION MONITOR</span>
+                        <span style="background: rgba(0,255,102,0.15); color: var(--neon-green); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">STATUS: ONLINE</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+                        <div style="background: var(--bg-dark); padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">CURRENT GAME</div>
+                            <div style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--neon-pink);">CS2 5v5 Cup</div>
+                        </div>
+                        <div style="background: var(--bg-dark); padding: 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">INTERNET LINE</div>
+                            <div style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--neon-cyan);">1,000 Mbps</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+                        ⚡ Instant PC Station Booking • No Login Required
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 PC Gaming Zones Section -->
+        <section style="max-width: 1320px; margin: 0 auto 90px; padding: 0 24px;">
+            <div style="text-align: center; max-width: 650px; margin: 0 auto 40px;">
+                <span class="cyan-text" style="font-family: var(--font-cyber); font-weight: 700; letter-spacing: 0.1em; font-size: 0.9rem;">CHOOSE YOUR HARDWARE TIER</span>
+                <h2 style="font-size: 2.6rem; margin-top: 6px;">PC GAMING <span class="pink-text">ZONES</span></h2>
+                <p style="color: var(--text-muted);">From budget esports to ultra liquid-cooled RTX 4090 VIP Pods</p>
+            </div>
+
+            <div class="zones-grid">
+
+                <!-- Tier 1: Basic -->
+                <div class="zone-card">
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--neon-cyan);" class="cyan-text">ENTRY ESPORTS</span>
+                    <h3 style="font-size: 1.4rem; margin-top: 6px;">BASIC ZONE</h3>
+                    <div class="zone-price">3 ₾ <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">/ hour</span></div>
+                    <ul class="zone-specs-list">
+                        <li><i class="fa-solid fa-microchip cyan-text"></i> GPU: RTX 3060 Ti 8GB</li>
+                        <li><i class="fa-solid fa-processor cyan-text"></i> CPU: Intel Core i5-13400F</li>
+                        <li><i class="fa-solid fa-tv cyan-text"></i> Monitor: 240Hz 1080p Esports</li>
+                        <li><i class="fa-solid fa-chair cyan-text"></i> DXRacer Ergonomic Seat</li>
+                    </ul>
+                    <a href="#booking" class="btn-cyan" style="margin-top: auto; justify-content: center;" onclick="selectZoneInBooking('basic')">
+                        Book Basic Zone
+                    </a>
+                </div>
+
+                <!-- Tier 2: Premium -->
+                <div class="zone-card">
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--neon-amber);" class="amber-text">HIGH PERFORMANCE</span>
+                    <h3 style="font-size: 1.4rem; margin-top: 6px;">PREMIUM ZONE</h3>
+                    <div class="zone-price" style="color: var(--neon-amber);">5 ₾ <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">/ hour</span></div>
+                    <ul class="zone-specs-list">
+                        <li><i class="fa-solid fa-microchip amber-text"></i> GPU: RTX 4070 Ti Super</li>
+                        <li><i class="fa-solid fa-processor amber-text"></i> CPU: Intel Core i7-14700K</li>
+                        <li><i class="fa-solid fa-tv amber-text"></i> Monitor: 240Hz QHD OLED</li>
+                        <li><i class="fa-solid fa-keyboard amber-text"></i> Wooting 60HE Mechanical</li>
+                    </ul>
+                    <a href="#booking" class="btn-cyan" style="margin-top: auto; justify-content: center; background: var(--neon-amber);" onclick="selectZoneInBooking('premium')">
+                        Book Premium Zone
+                    </a>
+                </div>
+
+                <!-- Tier 3: Pro -->
+                <div class="zone-card">
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--neon-cyan);" class="cyan-text">TOURNAMENT GRADE</span>
+                    <h3 style="font-size: 1.4rem; margin-top: 6px;">PRO ARENA</h3>
+                    <div class="zone-price">8 ₾ <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">/ hour</span></div>
+                    <ul class="zone-specs-list">
+                        <li><i class="fa-solid fa-microchip cyan-text"></i> GPU: RTX 4080 Super 16GB</li>
+                        <li><i class="fa-solid fa-processor cyan-text"></i> CPU: Ryzen 7 7800X3D</li>
+                        <li><i class="fa-solid fa-tv cyan-text"></i> Monitor: 360Hz ROG OLED</li>
+                        <li><i class="fa-solid fa-chair cyan-text"></i> Secretlab TITAN Evo</li>
+                    </ul>
+                    <a href="#booking" class="btn-cyan" style="margin-top: auto; justify-content: center;" onclick="selectZoneInBooking('pro')">
+                        Book Pro Arena
+                    </a>
+                </div>
+
+                <!-- Tier 4: Ultra VIP -->
+                <div class="zone-card ultra-card">
+                    <span class="zone-badge">VIP POD</span>
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--neon-pink);" class="pink-text">ULTRA EXCLUSIVE</span>
+                    <h3 style="font-size: 1.4rem; margin-top: 6px;">ULTRA VIP</h3>
+                    <div class="zone-price" style="color: var(--neon-pink);">12 ₾ <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">/ hour</span></div>
+                    <ul class="zone-specs-list">
+                        <li><i class="fa-solid fa-microchip pink-text"></i> GPU: RTX 4090 OC 24GB</li>
+                        <li><i class="fa-solid fa-processor pink-text"></i> CPU: Intel i9-14900KS</li>
+                        <li><i class="fa-solid fa-tv pink-text"></i> Monitor: 540Hz / 4K Curved</li>
+                        <li><i class="fa-solid fa-gamepad pink-text"></i> Private Room + Racing Sim</li>
+                    </ul>
+                    <a href="#booking" class="btn-pink" style="margin-top: auto; justify-content: center;" onclick="selectZoneInBooking('ultra')">
+                        Book Ultra VIP
+                    </a>
+                </div>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="stations.html" style="color: var(--neon-cyan); text-decoration: none; font-family: var(--font-cyber); font-weight: 700; letter-spacing: 0.05em;">
+                    <i class="fa-solid fa-list-check"></i> VIEW FULL HARDWARE SPECIFICATIONS CATALOG PAGE →
+                </a>
+            </div>
+        </section>
+
+        <!-- Live Station Booking Calculator Section (id="booking") -->
+        <section id="booking" class="booking-section">
+            <div class="booking-container">
+                <div style="text-align: center; margin-bottom: 36px;">
+                    <span class="cyan-text" style="font-family: var(--font-cyber); font-weight: 700; letter-spacing: 0.1em; font-size: 0.85rem;">INSTANT RESERVATION</span>
+                    <h2 style="font-size: 2.2rem; margin-top: 4px;">BOOK YOUR <span class="pink-text">GAMING RIG</span></h2>
+                    <p style="color: var(--text-muted);">Select your preferred PC Zone, duration, and target game</p>
+                </div>
+
+                <form id="bookingForm" onsubmit="event.preventDefault(); submitBooking();">
+                    <div class="booking-form-grid">
+                        
+                        <div class="form-group">
+                            <label class="form-label"><i class="fa-solid fa-desktop"></i> Select Gaming Zone:</label>
+                            <select class="form-select" id="bookZoneSelect">
+                                <option value="3">BASIC ZONE (3 ₾/hr)</option>
+                                <option value="5">PREMIUM ZONE (5 ₾/hr)</option>
+                                <option value="8" selected>PRO ARENA (8 ₾/hr)</option>
+                                <option value="12">ULTRA VIP POD (12 ₾/hr)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label"><i class="fa-solid fa-gamepad"></i> Preferred Main Game:</label>
+                            <select class="form-select" id="bookGameSelect">
+                                <option value="CS2">Counter-Strike 2 (Esports 5v5)</option>
+                                <option value="Valorant">Valorant (Ranked Competitive)</option>
+                                <option value="Dota2">Dota 2 (LAN Captains Draft)</option>
+                                <option value="Cyberpunk">Cyberpunk 2077 (Ray Tracing Max)</option>
+                                <option value="EAFC">EA Sports FC 24 (Controllers)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label"><i class="fa-solid fa-calendar"></i> Reservation Date:</label>
+                            <input type="date" class="form-input" id="bookDateInput">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label"><i class="fa-solid fa-clock"></i> Start Time Slot:</label>
+                            <select class="form-select" id="bookTimeSelect">
+                                <option value="12:00">12:00 PM (Noon)</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="18:00">06:00 PM (Prime Time)</option>
+                                <option value="21:00">09:00 PM</option>
+                                <option value="00:00">12:00 AM (All-Nighter)</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <!-- Hours Slider -->
+                    <div style="background: var(--bg-surface); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-cyan); margin-bottom: 24px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span class="form-label"><i class="fa-solid fa-hourglass-half"></i> Playtime Duration:</span>
+                            <span style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--neon-cyan);" id="durationText">3 Hours</span>
+                        </div>
+                        <input type="range" min="1" max="10" value="3" style="width: 100%; accent-color: var(--neon-cyan);" id="hoursRange">
+                    </div>
+
+                    <!-- Total Price Calculation Bar -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0, 240, 255, 0.08); border: 1px solid var(--neon-cyan); padding: 20px 24px; border-radius: var(--radius-sm); margin-bottom: 24px;">
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-cyber); text-transform: uppercase;">ESTIMATED TOTAL FEE</div>
+                            <div style="font-size: 2.2rem; font-weight: 900; font-family: var(--font-heading); color: var(--neon-cyan);" id="totalPriceText">24 ₾</div>
+                        </div>
+                        <button type="submit" class="btn-cyan" style="padding: 14px 32px; font-size: 1rem;">
+                            <i class="fa-solid fa-check"></i> CONFIRM BOOKING NOW
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Location & Interactive Map Section (id="location") -->
+        <section id="location" class="location-section">
+            <div>
+                <span class="cyan-text" style="font-family: var(--font-cyber); font-weight: 700; letter-spacing: 0.1em; font-size: 0.85rem;">LOCATION & OPERATING HOURS</span>
+                <h2 style="font-size: 2.4rem; margin-top: 4px; margin-bottom: 16px;">FIND OUR <span class="pink-text">ARENA</span></h2>
+                
+                <p style="color: var(--text-muted); margin-bottom: 24px;">
+                    Located in the heart of Tbilisi with dedicated gaming lounge parking, high-speed fiber internet, energy bar, and private VIP pods.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="display: flex; align-items: center; gap: 14px; background: var(--bg-surface); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-cyan);">
+                        <i class="fa-solid fa-location-dot cyan-text" style="font-size: 1.4rem;"></i>
+                        <div>
+                            <div style="font-weight: 700; font-family: var(--font-cyber);">ADDRESS LOCATION</div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem;">Chavchavadze Ave #42, Vake, Tbilisi, Georgia</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 14px; background: var(--bg-surface); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-cyan);">
+                        <i class="fa-solid fa-clock pink-text" style="font-size: 1.4rem;"></i>
+                        <div>
+                            <div style="font-weight: 700; font-family: var(--font-cyber);">WORKING HOURS</div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem;">24 Hours / 7 Days Non-Stop Open</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 14px; background: var(--bg-surface); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-cyan);">
+                        <i class="fa-solid fa-phone amber-text" style="font-size: 1.4rem;"></i>
+                        <div>
+                            <div style="font-weight: 700; font-family: var(--font-cyber);">DESK & DISCORD SUPPORT</div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem;">+995 32 2 900 777 • discord.gg/cyberpulse</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Map Frame -->
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.857640201416!2d44.757041!3d41.708451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x404473347f7d4571%3A0xa64361546733a1e0!2sIlia%20Chavchavadze%20Avenue%2C%20Tbilisi!5e0!3m2!1sen!2sge!4v1700000000000!5m2!1sen!2sge" loading="lazy"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1320px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-gamepad cyan-text" style="font-size: 1.4rem;"></i>
+                <span style="font-weight: 800; color: #fff; font-size: 1.2rem; font-family: var(--font-heading);">CYBERPULSE ARENA</span>
+            </div>
+            <div>© 2026 CyberPulse Gaming Lounge. All rights reserved.</div>
+            <a href="../index.html" style="color: var(--neon-cyan); text-decoration: none; font-weight: 700; font-family: var(--font-cyber);">
+                <i class="fa-solid fa-arrow-left"></i> Return to Developer Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <!-- App JS -->
+    <script src="app.js"></script>
+</body>
+</html>

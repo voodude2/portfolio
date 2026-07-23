@@ -5,6 +5,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
+        gaming: {
+            title: "CyberPulse Arena - Next-Gen Esports & PC Gaming Lounge",
+            desc: "A futuristic cyberpunk multi-page web application for a premier 24/7 gaming lounge. Features 4 distinct PC Hardware Tiers (Basic, Premium, Pro Arena, Ultra VIP Pods), a live station booking calculator with date & hour selection, and an interactive location map.",
+            features: [
+                "🕹️ 4 PC Hardware Tiers (RTX 4090 OC, i9-14900KS, 540Hz / 360Hz OLED monitors)",
+                "⚡ Live PC Station Booking System (Real-time GEL fee calculator & receipt modal)",
+                "📍 Location & Interactive Map Section (Chavchavadze Ave #42, Tbilisi, 24/7 Open)",
+                "🌌 Cyberpunk Neon RGB Design System (#00F0FF, #FF0055, glowing borders)"
+            ],
+            link: "./page 6/index.html"
+        },
         hunting: {
             title: "Apex Hunter - Premium Hunting & Firearms Outfitter",
             desc: "A tactical multi-page web application for a licensed hunting equipment outfitter. Features a dedicated Firearms Catalog page (catalog.html), caliber and optics filter, specification modal, and step-by-step licensing guide.",
