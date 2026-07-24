@@ -5,6 +5,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
+        'react-3d': {
+            title: "HyperRender 3D — Generative AI Spatial Engine (React + Tailwind)",
+            desc: "A futuristic 3D Spatial Asset & Generative Mesh Engine built with React 19 and Tailwind CSS v4. Features interactive 3D mesh density synthesizer, real-time PBR material shader roughness controls, WebXR Apple Vision Pro USDZ export simulation, and dark cybernetic glassmorphism design.",
+            features: [
+                "⚛️ Built with React 19, Tailwind CSS v4, Vite 6, and Lucide Icons",
+                "🧊 Interactive 3D Mesh Synthesizer (5k to 500k poly density & OBJ/GLTF/USDZ export simulator)",
+                "🎨 Real-Time PBR Shader & Lighting Synthesizer (Metallic, Roughness & Emissive Glow controls)",
+                "📊 Live GPU Hardware Acceleration Telemetry (120 FPS, VRAM allocation & Draw Call counter)",
+                "💎 Dark Cybernetic Emerald & Cyan Design System with interactive pricing & asset gallery"
+            ],
+            link: "./page 9/index.html"
+        },
         'react-tailwind': {
             title: "React + Tailwind Project (AetherFlow AI SaaS Platform)",
             desc: "A state-of-the-art WebGL & React 19 Enterprise AI SaaS Automation Platform styled with Tailwind CSS v4. Features interactive multi-agent node pipeline simulator, millisecond latency tracing, dynamic ROI cost calculator engine, and responsive glassmorphic dark design system.",
